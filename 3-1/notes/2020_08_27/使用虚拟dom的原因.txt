@@ -1,0 +1,7 @@
+虚拟dom就是一个自定义js object对象，只需要拥有自己需要的成员属性就可以了，而真实dom拥有非常多得成员属性。
+
+
+虚拟dom的作用：
+维护视图和状态的关系
+在复杂视图情况下提升渲染性能
+除了渲染dom外，还可以实现ssr(nuxt.js/next.js)、原生应用(Weex/React Native)、小程序(mpvue/uni-app)等

@@ -1,0 +1,7 @@
+跳转路由的方法：
+1、this.$router.push('/')//传入路由地址字符
+带参方式示例：this.$router.push('/detail/5')
+2、this.$router.push({name:'Home'})//传入路由对象，含有路由的name属性
+带参方式示例：this.$router.push({name:'Home',params:{id:5}})
+3、push方法会带历史，使用replace方法不会带历史，会把传入页面作为当前历史。
+4、this.$router.go(-1)//根据历史返回上一个页面。为-2的话将会返回上上个页面。

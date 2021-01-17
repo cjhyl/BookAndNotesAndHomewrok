@@ -1,0 +1,20 @@
+安装parcel
+yarn add parcel-bundler --dev
+安装snabbdom
+yarn add snabbdom --dev
+
+snabbdom中处理dom的六个模块：
+1、attributes
+设置dom元素的属性，使用setAttribute()
+处理bool类型属性
+2、props
+和attributes模块相似，设置dom元素的属性element[attr]=value
+不处理bool类型属性
+3、class
+切换类样式，注意：给元素设置类样式通过sel选择器
+4、dataset
+设置data-*的自定义属性
+5、eventlisteners
+注册和移除事件
+6、style
+设置行内样式，支持动画  delayed/remove/destroy

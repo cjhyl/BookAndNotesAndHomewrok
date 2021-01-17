@@ -1,0 +1,24 @@
+传入：
+{
+  path:'/detail/:id',
+  name:'Detail',
+  //开启props，会把url中的参数传递给组件
+  //在组件中通过props来接收url参数
+  props:true,
+  component:xxx
+}
+
+获取：
+<template>
+  <div>
+    方式1：通过当前路由规则获取数据 {{$route.params.id}}
+    <br>
+    方式2：路由规则中开启了props传参{{id}}
+  </div>
+</template>
+<script>
+export default {
+  name:"Detail",
+  props:['id']//通过props获取值
+}
+</script>

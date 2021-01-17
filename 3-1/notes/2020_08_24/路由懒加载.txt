@@ -1,0 +1,6 @@
+{
+  path:'/detai',
+  name:'Detail',
+  //使用函数返回import的方式，使该组件不会在初始时被加载，只会在访问该路由时才会加载。
+  component:()=>import('../views/Detail.vue')
+}

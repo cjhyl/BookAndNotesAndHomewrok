@@ -1,0 +1,5 @@
+1、创建与路由相关的组件。
+2、注册插件，调用vue.use注册vue-router。
+3、创建router对象,在其中配置路由规则。
+4、使用router-view设置占位。
+5、使用router-link创建链接。

@@ -1,0 +1,9 @@
+1、创建vue实例
+2、初始化事件、生命周期成员、h函数。触发beforeCreate钩子
+3、初始化props、data、methods等注入vue实例。触发created钩子，在此钩子函数中可以开始访问这些成员了。
+4、开始执行render过程。通过el选项、$mount函数、template选项等一系列操作生成虚拟DOM。触发beforeMount。
+5、渲染DOM。触发mounted。
+6、数据更新时，触发beforeUpdate钩子，更新完毕后，触发updated钩子。
+7、销毁时，调用$destroy函数，触发beforeDestroy钩子，销毁结束，触发destroyed钩子。
+
+ps:如果使用构造生成文件，模板编译将提前执行。

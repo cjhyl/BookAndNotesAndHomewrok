@@ -1,0 +1,58 @@
+components->Layout.vue：
+<template>
+  <div>
+    <!--子路由拥有相同的头尾-->
+    <div>
+      <img width="25%" src="@/assets/logo.png">
+    </div>
+    <div>
+      <!--嵌套的子路由-->
+      <router-view></router-view>
+    </div>
+    <!--子路由拥有相同的头尾-->
+    <div>
+      Footer
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'layout'
+}
+</script>
+
+<style scoped>
+</style>
+
+views->Detail.vue略
+views->Index.vue略
+views->Login.vue略
+
+router->index.js中：
+
+const routes = [
+  {
+    name: 'login',
+    path: '/login',
+    component: Login
+  },
+  // 嵌套路由
+  {
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        name: 'index',
+        path: '',
+        component: Index
+      },
+      {
+        name: 'detail',
+        path: 'detail/:id',
+        props: true,
+        component: () => import('@/views/Detail.vue')
+      }
+    ]
+  }
+]

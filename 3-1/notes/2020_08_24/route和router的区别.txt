@@ -1,0 +1,3 @@
+router为VueRouter的实例，里面含有很多属性、方法和子对象。
+
+route相当于当前正在跳转的路由对象。。可以从里面获取name,path,params,query等。。
