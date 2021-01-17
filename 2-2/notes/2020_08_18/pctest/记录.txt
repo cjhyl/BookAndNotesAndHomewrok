@@ -1,0 +1,31 @@
+安装parcel
+yarn add parcel-bundler --dev
+
+parcel官方推荐用html文件作为打包入口
+
+使用parcel
+yarn parcel src/index.html
+然后parcel会根据index.html中的文件引用，打包文件，并开启一个监视、自动刷新的虚拟服务器。
+
+
+
+parcel会自动安装模块，
+例：如果在代码中import $ from 'juqery'，在运行parcel的时候会自动安装jquery模块
+
+
+在文件中添加一个css文件或图片文件，并引入，这时在运行中都会即时生效，不需要配置loader，不需要重启命令，非常傻瓜式。
+
+
+使用import方法引入包的话，打包文件也会自动分包。
+
+
+
+parcel生产模式打包：
+yarn parcel build src/index.html
+
+
+parcel于2017年，基于webpack使用过于繁琐的痛点诞生的。
+其优点:
+完全零配置，构建速度更快
+
+但webpack生态更丰富和完善，各种问题都有解决方案，目前也越来越好用。

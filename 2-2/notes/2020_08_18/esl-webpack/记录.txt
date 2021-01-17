@@ -1,0 +1,10 @@
+安装eslint-loader
+使用：
+在webpack.config.js的module->rules中添加
+      {
+        test: /\.js$/, 
+        exclude: /node_modules/, 
+        use: 'eslint-loader',
+        enforce:'pre'//执行优先设置
+      },
+或者和其他js处理loader在use数组中执行。

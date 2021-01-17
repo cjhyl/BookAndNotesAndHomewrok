@@ -1,0 +1,17 @@
+1、import的from后面需要完整的文件名例如'./demo.js'、'./aaa/index.js'，不能省略，这和commonjs不同。
+
+2、不能直接使用文件名，需要使用./之类相对绝对路径符号。
+3、使用import {} from 'xxx'只执行代码，不提取成员，简写为import 'xxx'。
+4、import * as mod from 'xxx'导出所有成员并整合到对象mod中
+5、错误示例：
+（1）import路径不能为变量
+var path='./module.js'
+import {name} from path
+（2）import必须在最顶层
+if(true){
+  import {name} from './module.js'
+}
+6、动态导入需要使用函数import('./module.js').then(function(module){console.log(module)})
+7、导出时同时使用了export {}和export default，导入时：
+import {name,age,default as title} from './module.js'或者：
+import title,{name,age} from './module.js'

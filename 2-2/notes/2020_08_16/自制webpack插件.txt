@@ -1,0 +1,22 @@
+class MyPlugin{
+  apply(compiler){
+    console.log('插件启动')
+    //运用emit钩子干涉打包过程
+    compiler.hooks.emit.tap('MyPlugin',compilation=>{
+      //compilation 此次打包的上下文
+      for (const name in compilation.assets){
+        //console.log(name)每个资源文件的名称
+        //console.log(compilation.assets[name].source())获取资源内容
+        if(name.endsWith('.js')){//处理js文件
+          const contents = compilation.assets[name].source();
+          const newContents = contents;//对资源文件内容字符串进行处理
+          compilation.assets[name]={//新字符串注入资源文件
+            source:()=>newContents,
+            size:()=>newContents.length
+          }
+        }
+
+      }
+    })
+  }
+}

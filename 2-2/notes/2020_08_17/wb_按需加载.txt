@@ -1,0 +1,25 @@
+类似单页面应用使用的技术，按需加载，动态导入，示例代码：
+
+const render = ()=>{
+  const hash = window.localtion.hash || '#posts'
+  const mainEle = document.getElementById('app')
+  mainEle.innerHTML=''
+  if(hash=='#posts'){//解析路由hash确定需导入的模块
+    ///* webpackChunkName:'posts' */ webpack魔法注释，关系到打包文件的名称。不使用的话打包文件命名为1、2、3、4开头。如果几个模块命名一样的话，会被组合到一个打包文件中
+    import(/* webpackChunkName:'posts' */'./posts/posts').then(({default:posts})=>{
+      mainEle.appendChild(posts())
+    })
+  }else if(hash=='#album'){
+    import(/* webpackChunkName:'album' */'./album/album').then(({default:album})=>{
+      mainEle.appendChild(album())
+    })
+  }
+}
+render()
+window.addEventListener('hashchange',render)
+
+
+
+
+
+

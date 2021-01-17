@@ -1,0 +1,16 @@
+使用方法：
+yarn 安装依赖
+安装完成后：
+yarn serve开启开发模式
+yarn build对项目进行打包
+yarn lint使用eslint对项目代码进行检测
+eslint代码检测不会对serve和build产生影响，如果需要，可以取消webpack.common.js中eslint-loader规则的注释
+
+开发流程：
+1、添加基础文件。
+2、安装webpack、webpack-cli、webpack-dev-server、webpack-merge，用webpack-merge处理三个配置文件的关系。
+3、配置serve和build命令，然后处理打包过程中的各种错误提示，处理了less文件和png文件的读取，在处理vue文件读取时卡了很久，一直报vue中style读取错误，找了资料，最新版本的vue-loader需要添加单独的VueLoaderPlugin，这点没问题，但还需要单独设置个css的读取器，这个一开始没注意到，费了不少时间。
+4、添加clean-webpack-plugin打包文件清理工具，添加html生成插件，在serve和build中能正常展示页面。
+5、处理生成的图片文件路径为object module的问题，原因是file-loader默认ESM语法，而VUE使用的CommonJS语法，在文件读取器配置属性中设置，让其取消ESM语法。
+6、处理public下的html模板文件的解析和ico文件的复制、引用
+7、安装使用eslint代码检查工具，配置package.json中的lint命令

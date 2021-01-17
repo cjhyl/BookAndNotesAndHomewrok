@@ -1,0 +1,31 @@
+输出文件名has处理可以避免浏览器缓存导致的更新不及时问题。
+示例：
+//普通hash，所有的hash值都是一致的，当某个文件改变时，所有hash都会改变
+output:{
+  filename:'[name]-[hash].bundle.js'
+}
+plugins:[
+  new MiniCssExtractPlugin({
+    filename:'[name]-[hash].bundle.css'
+  })
+]
+//chunkhash 每路配置中的hash值都是独立的，修改过文件的该路文件打包hash值才会改变
+output:{
+  filename:'[name]-[chunkhash].bundle.js'
+}
+plugins:[
+  new MiniCssExtractPlugin({
+    filename:'[name]-[chunkhash].bundle.css'
+  })
+]
+//contenthash 文件级别的hash，每个文件的hash值都独立，修改过该文件后只有该文件hash值改变
+
+指定hash长度，hash后用冒号跟数值
+output:{
+  filename:'[name]-[chunkhash:9].bundle.js'
+}
+plugins:[
+  new MiniCssExtractPlugin({
+    filename:'[name]-[chunkhash:9].bundle.css'
+  })
+]

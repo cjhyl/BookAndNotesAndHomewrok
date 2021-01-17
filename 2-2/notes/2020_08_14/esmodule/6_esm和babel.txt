@@ -1,0 +1,7 @@
+先安装babel相关插件
+yarn add @babel/node @babel/core @babel/preset-env --dev
+然后使用
+yarn babel-node index.js --presets=@babel/preset-env
+
+可以在.babelrc配置文件中添加属性"presets":["@babel/preset-env"]
+然后直接使用babel-node index.js

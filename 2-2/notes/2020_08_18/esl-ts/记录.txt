@@ -1,0 +1,2 @@
+安装typescript和eslint。
+eslint初始化配置文件时候问是否使用typescript时选yes

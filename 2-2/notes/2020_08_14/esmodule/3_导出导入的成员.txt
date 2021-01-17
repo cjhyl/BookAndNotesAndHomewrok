@@ -1,0 +1,5 @@
+
+把导入的成员直接导出
+export {foo,bar} from './module.js'
+
+默认default模块导出需要使用as重命名

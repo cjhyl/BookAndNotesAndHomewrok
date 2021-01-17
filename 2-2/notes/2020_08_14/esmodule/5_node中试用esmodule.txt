@@ -1,0 +1,4 @@
+首先，把js文件改为mjs文件。
+然后，在命令行工具中使用node --experimental-modules app.mjs
+
+新版本(node 12.10及以上)中：项目的package.json增加type:'module'，项目中的js文件默认为es module。而使用commonjs规范的js文件需要改为cjs文件

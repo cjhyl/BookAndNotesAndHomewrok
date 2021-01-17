@@ -1,0 +1,11 @@
+创建package.json
+yarn init --yes
+安装webpack及其脚手架
+yarn add webpack webpack-cli --dev
+运行webpack打包
+yarn webpack
+
+webpack4.0以后的版本支持0配置打包，使用一些默认的约定进行打包。
+但要对webpack进行更细致的配置的话，需要在项目根目录添加webpack.config.js文件。
+
+webpack.config.js属于node环境中的文件，需要遵循commonjs规范。

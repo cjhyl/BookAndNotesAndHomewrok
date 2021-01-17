@@ -1,0 +1,28 @@
+//安装webpack-dev-server运行虚拟服务器并监听页面变化
+yarn add webpack-dev-server --dev
+yarn webpack-dev-server
+
+//开发阶段API请求跨域问题，JSONP、CORS以及不需要服务器处理的webpack-dev-server代理配置
+
+//压缩文件中映射map文件代码格式
+//# sourcemappingURL=xxx.map
+
+sourcemap模式：
+eval：速度最快，但出现错误只能定位打包代码文件。
+sourceMap：速度最慢，但调试效果很好。
+以上两个模式间还有很多不同模式，总体来说，速度越慢的，调试效果越好，速度越快的，调试效果越差。
+开发环境推荐：cheap-module-eval-souce-map
+生产环境：none
+对生产环境是否有BUG没信心，可选择nosources-source-map，会报错，但不会显示源代码。
+
+HMR，模块热替换。webpack-dev-server会自动刷新页面，不会保留页面上的数据、状态。而使用了HMR，只会更新修改部分的内容，而不会全部更新。
+使用方式：
+1、yarn webpack-dev-server --hot。
+2、在devServer中配置属性hot:true,在plugins中添加new webpack.HotModuleReplacementPlugin()
+
+我们使用方法2，配置好了以后，项目内的css文件会热更新，但其他文件不会，因为style-loader中对热更新做了处理，js和图片文件需要单独处理。
+感觉为了实现热替换增加这些逻辑没多大用。
+自己实现热替换逻辑的注意点：
+1、如果其中有代码出错，会导致自动刷新，从而找不到错误点。把hot:true改为hotOnly:true，不自动刷新，只使用热更新。
+2、有可能不存在module.hot对象，报错。判断一下其是否存在，存在才执行module.hot.accept
+3、代码中多了一些与业务无关的代码，是否对业务有影响？打包后这些代码都会被移除掉。

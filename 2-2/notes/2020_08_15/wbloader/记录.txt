@@ -1,0 +1,29 @@
+webpack的加载器loader的基本使用：
+
+webpack默认打包js文件，打包其他文件需要配置响应的loader
+//安装css loader和style loader
+yarn add css-loader --dev
+yarn add style-loader --dev
+//安装file-loader读取文件
+yarn add file-loader --dev
+//安装url-loader把文件转为base64代码，适合小文件，大文件还是使用file-loader
+//配置url-loader文件大小限制时，默认需要有file-loader，否则会报错
+yarn add url-loader --dev
+
+常用的loader类型：
+1、编译转换类，如css-loader，把样式代码编译转换，以js运作
+2、文件操作类，如file-loader
+3、代码检验类，如eslint-loader
+
+//安装babel-loader
+yarn add babel-loader @babel/core @babel/preset-env --dev
+
+webpack触发打包的标准：
+支持ES Modules标准的import声明，
+支持CommonJS标准的require函数，
+支持AMD标准的define函数和require函数。
+一个项目最好只使用一个标准，否则会降低项目的可维护性
+
+样式代码中的@import和url函数会触发css-loader、file-loader或url-loader
+
+HTML代码中图片标签的src属性会触发file-loader或url-loader,a标签href默认不会，需要添加配置

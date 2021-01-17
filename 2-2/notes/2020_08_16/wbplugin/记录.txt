@@ -1,0 +1,26 @@
+//安装清理插件clean-webpack-plugin
+yarn add clean-webpack-plugin --dev
+//安装html插件html-webpack-plugin
+yarn add html-webpack-plugin --dev
+//复制文件插件copy-webpack-plugin
+
+示例就介绍了三种插件的运用，其中html生成插件与html-loader的冲突通过把index.html改名index.ejs处理，与babel-loader的冲突不知如何处理。
+
+处理html-webpack-plugin与babel-loader冲突：
+        // {
+        //     test:/.js$/,
+        //     use:{
+        //         loader:'babel-loader',
+        //         options:{
+        //             presets:['@babel/preset-env']//使用最新的es6特性标准转换js中的es6代码为es5
+        //         }
+        //     }
+        // },
+换为
+        {
+            test:/.js$/,
+            exclude: /node_modules/, 
+            use:'babel-loader',
+       },
+
+index.ejs还原为index.html

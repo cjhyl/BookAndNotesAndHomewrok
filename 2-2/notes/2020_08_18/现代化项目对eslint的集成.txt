@@ -1,0 +1,6 @@
+例如vuecli创建时会对你提问是否使用eslint
+lint on save//保存时校验
+lint and fix on commit//利用git钩子提交代码时校验
+怎么存放babel和eslint文件？
+in dedicated config files//独立存放
+in package.json

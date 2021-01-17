@@ -1,0 +1,7 @@
+安装
+yarn add prettier --dev
+使用
+yarn prettier ./index.js
+默认执行是把格式化后的代码输出控制台
+yarn prettier ./index.js --write
+这样可以覆盖源文件

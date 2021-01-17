@@ -1,0 +1,22 @@
+多入口打包
+资源中：
+albnum是个子页面
+index是首页
+global.css是公用样式
+fetch.js是公用的请求方法
+
+多入口打包模式的关键属性配置：
+entry: {//入口属性配置
+    index: './src/index.js',
+    album: './src/album.js'
+  },
+output: {//动态文件名配置
+    filename: '[name].bundle.js'
+  },
+
+new HtmlWebpackPlugin({
+      title: 'Multi Entry',
+      template: './src/index.html',
+      filename: 'index.html',
+      chunks: ['index']//指定打包文件引用块
+    }),

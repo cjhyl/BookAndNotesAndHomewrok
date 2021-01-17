@@ -1,0 +1,9 @@
+重新导入文件。
+在原有的.pipe(plugins.eslint())后面增加：
+        .pipe(plugins.eslint.format())
+        .pipe(plugins.eslint.failAfterError())
+以输出错误
+
+使用yarn lint校验代码错误。
+
+在.eslintrc.js中的globals{"$":"readonly"}用以处理jquery的$符号报错提示。

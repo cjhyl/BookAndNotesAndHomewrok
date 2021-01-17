@@ -1,0 +1,78 @@
+安装rollup
+yarn add rollup --dev
+运行rollup
+// ./src/index.js，指定入口文件
+//--format iife，指定打包格式
+//--file dist/bundle.js，指定输入文件
+yarn rollup ./src/index.js --format iife --file dist/bundle.js
+
+配置文件rollup.config.js配置
+export default {
+    input:'src/index.js',
+    output:{
+        file:'dist/bundle.js',
+        format:'iife'
+    }
+}
+配置好以后，使用yarn rollup --config运行，也可以指定配置文件如：yarn rollup --config rollup.config.js
+
+
+rollup的扩展方式只有插件，不像webpack有loader、plugin、minimize三种方式。
+
+安装json插件：
+yarn add rollup-plugin-json --dev
+安装NPM模块node-resolve   然后就能import导入npm模块了，最好安装es版本的模块
+yarn add rollup-plugin-node-resolve --dev
+import nodeResolve from 'rollup-plugin-node-resolve'
+plugins:[
+  json(),
+  nodeResolve()
+]
+
+roolup默认使用ESM模块，要使用CommonJS模块的话，需要安装插件
+yarn add rollup-plugin-commonjs --dev
+import commonjs from 'rollup-plugin-commonjs'
+plugins:[
+  json(),
+  nodeResolve(),
+  commonjs()
+]
+然后对于commonjs规范的文件就能正确导入了
+
+
+
+
+
+代码分割配置：
+output:{
+        //file:'dist/bundle.js',
+        //format:'iife'
+        dir:'dist',
+        format:'amd'
+    }
+入口文件中使用
+import('./logger').then(({log})=>{
+    log('ccode splitting~')
+}
+的方式导入模块
+
+
+
+
+
+
+多入口打包需要使用多个入口文件，然后配置多入口：
+input:['src/index.js','src/album.js'],
+或者
+input:{
+    idx:'src/index.js',
+    ab:'src/album.js'
+},
+输出的output格式化属性format也需要使用
+format:'amd'
+amd格式打包的js，不能直接使用，需要通过require.js来调用
+<script src="require.js" data-main="dist/idx.js"></script>
+
+
+rollup小而美，webpack大而全
+开发项目使用webpack，开发插件、框架使用rollup

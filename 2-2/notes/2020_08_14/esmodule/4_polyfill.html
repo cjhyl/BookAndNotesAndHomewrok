@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>低版本兼容ES Module</title>
+</head>
+<body>
+    
+    <!--https://unpkg.com/promise-polyfill@8.1.3/dist/polyfill.min.js
+    https://unpkg.com/browser-es-module-loader@0.4.1/dist/babel-browser-build.js
+    https://unpkg.com/browser-es-module-loader@0.4.1/dist/browser-es-module-loader.js-->
+    <!-- <script src="polyfill/polyfill.min.js"></script>
+    <script src="polyfill/babel-browser-build.js"></script>
+    <script src="polyfill/browser-es-module-loader.js"></script> -->
+    <!--nomodule在不支持ES Module的环境中使用-->
+    <script nomodule src="polyfill/polyfill.min.js"></script>
+    <script nomodule src="polyfill/babel-browser-build.js"></script>
+    <script nomodule src="polyfill/browser-es-module-loader.js"></script>
+    <script type="module" src="polyfill/app.js"></script>
+</body>
+</html>

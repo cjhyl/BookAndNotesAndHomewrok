@@ -1,0 +1,36 @@
+安装husky
+yarn add husky --dev
+在package.json中添加
+"husky":{
+  "hooks":{
+    "pre-commit":"npm run test"
+  }
+}
+这样在git提交前，就会运行npm run test
+
+"scripts":{
+  "test":"eslint ./index.js"
+}
+
+
+
+安装lint-staged，配合husky在commit前做更多的事
+yarn add lint-staged --dev
+在package.json中添加
+"husky":{
+  "hooks":{
+    "pre-commit":"npm run precommit"
+  }
+}
+"lint-staged":{
+  "*.js":[
+    "eslint",
+    "git add"
+  ]
+}
+
+
+"scripts":{
+  "test":"eslint ./index.js",
+  "precommit":"lint-staged"
+}

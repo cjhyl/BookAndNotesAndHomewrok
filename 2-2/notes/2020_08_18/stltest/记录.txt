@@ -1,0 +1,13 @@
+1、提供默认的代码检查规则，可以通过配置选择性的开启或关闭
+2、提供CLI工具，快速调用
+3、通过插件支持Sass Less PostCSS
+4、支持Gulp或Webpck集成11
+
+
+安装
+yarn add stylelint --dev
+使用
+yarn stylelint ./index.css --fix
+
+安装sass文件的支持
+yarn add stylelint-config-sass-guidelines --dev

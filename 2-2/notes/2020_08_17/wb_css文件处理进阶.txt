@@ -1,0 +1,58 @@
+css文件的按需加载：
+
+mini-css-extract-plugin
+需要安装插件yarn add mini-css-extract-plugin --dev
+
+在webpack.config.js中
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+plugins中：
+new MiniCssExtractPlugin()
+然后在之前的
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  },
+中，'style-loader',改为MiniCssExtractPlugin.loader,
+
+这样，打包时css文件会单独打包出来，并用link标签引入，不再用style标签加载。不过建议css文件超过150k的时候使用，样式文件较小时用style效率更高。
+
+
+
+
+optimize-css-assets-webpack-plugin
+
+之前输出的css文件没有进行压缩，还需要使用其他插件压缩。
+yarn add optimize-css-assets-webpack-plugin --dev
+
+在webpack.config.js中
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+在plugins中添加new OptimizeCssAssetsWebpackPlugin()
+这时在各种模式的打包下都会工作
+如果改到
+optimization:{
+  minimizer:[
+    new OptimizeCssAssetsWebpackPlugin()
+  ]
+}
+这时，只会在需要压缩的打包模式中才会工作，例如yarn webpack --mode production
+
+
+
+不过这么设置后，因为设置了minimizer，覆盖了默认配置，会导致js的默认压缩行为失效，这时需要手动恢复js压缩。
+yarn add terser-webpack-plugin --dev
+在webpack.config.js中
+const TerserWebpackPlugin = require('terser-webpack-plugin')
+
+optimization:{
+  minimizer:[
+    new TerserWebpackPlugin(),
+    new OptimizeCssAssetsWebpackPlugin()
+  ]
+}

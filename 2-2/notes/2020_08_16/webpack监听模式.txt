@@ -1,0 +1,5 @@
+//监视文件变化，文件变化后自动打包，结合browser-sync可以实现页面监听
+yarn webpack --watch
+//不过上面这种方式比较原始，更好的方法是安装webpack-dev-server
+yarn add webpack-dev-server --dev
+yarn webpack-dev-server

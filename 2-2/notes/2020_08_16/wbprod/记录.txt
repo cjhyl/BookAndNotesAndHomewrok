@@ -1,0 +1,49 @@
+webpack不同环境下的配置：
+1、配置文件根据环境不同导出不同配置
+2、一个环境对应一个配置文件
+
+第一种方法示例中展示了。
+第二种方法就不写了，看了下vue脚手架，其分为webpack.base.conf.js(基本配置)、webpack.dev.conf.js（开发配置）、webpack.prod.conf.js（生产配置）。
+其package.json中：
+"scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "build": "node build/build.js"
+  },
+然后
+npm run dev时候使用了webpack.dev.conf.js，
+npm run build时使用的build.js中const webpackConfig = require('./webpack.prod.conf')引入了webpack.prod.conf.js
+
+vuecli判断环境通过
+new webpack.DefinePlugin({
+      'process.env': env
+    })
+为全局变量process.env注入{NODE_ENV: '"production"'}之类的值，
+process.env.NODE_ENV=="production"为生产打包环境
+process.env.NODE_ENV=="development"为开发环境
+
+
+tree shaking模式，在priduction模式中默认开启，会把未引用的代码省略掉。如果需要主动开启，需配置属性：
+optimization:{
+  usedExports:true,//导出使用过的成员，不再导出未使用过的成员
+  concatenateModules:true,//尽可能降所有模块合并到一个函数中
+  minimize:true//压缩，移除未使用的代码
+}
+在某些历史版本中，主动开启了tree shaking模式后，可能使babel失效
+presets:[
+  ['@babel/preset-env',{module:'commonjs'}]//配置使用commonjs标准，不使用esModule标准，这时就会使tree shaking失效
+]
+presets:[
+  ['@babel/preset-env',{module:false}]//不使用esModule转换插件，这样可以确保tree shaking正常工作
+]
+
+sildeEffects属性，和tree shaking类似，但实际不同的属性，会判断模块是否有副作用，如果没有的话说明这模块没有被使用，没有被使用的模块在打包时会被移除掉。
+optimization:{
+  sildeEffects:true,//开启sildeEffects功能
+  //usedExports:true,//导出使用过的成员，不再导出未使用过的成员
+  //concatenateModules:true,//尽可能降所有模块合并到一个函数中
+  //minimize:true//压缩，移除未使用的代码
+}
+如果在package.json中添加"sildeEffects":false，则表明这个项目所有模块没有副作用，没被引用的话就不会被打包。
+标明所有文件都没有副作用的话，有副作用的代码（如css文件，改造全局对象的文件）也不会被打包
+可以把"sildeEffects":false改为"sildeEffects":["文件路径1","文件路径2"...]标明有副作用文件

@@ -1,0 +1,32 @@
+方案一：optimization->splitChunks->cacheGroups  单独打包
+
+module.exports = {
+  optimization:{
+    splitChunks: {
+      cacheGroups: {
+        vue: {//把vue文件单独打包
+          test:/[\\/]node_modules[\\/]vue[\\/]/,
+          chunks:'initial'
+        },
+        vuex: {//把vuex文件单独打包
+          test:/[\\/]node_modules[\\/]vuex[\\/]/,
+          chunks:'initial'
+        },
+      }
+    }
+  }
+}
+
+
+方案二：
+
+
+module.exports = {
+  externals: {
+    vue: 'Vue'//module.exports = Vue，在index.html中引入vue，然后在这里导入全局的Vue对象。
+  }
+}
+
+
+https://unpkg.com/vue
+https://unpkg.com/vuex

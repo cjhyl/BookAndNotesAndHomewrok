@@ -1,0 +1,90 @@
+安装es lint
+yarn add eslint --dev或npm install eslint --save-dev
+查看eslint版本：
+cd .\node_modules\
+cd .\.bin\
+.\eslint --version
+或
+npx eslint --version
+或
+yarn eslint --version
+
+eslint初始化：
+yarn eslint --init
+
+how would you lick to use ESLint?
+只检查语法
+检查语法并发现问题代码
+检查语法、发现问题代码，并校验代码风格
+what type of modules does your project use?
+es modules
+Commonjs
+None of these
+which framework does your project use?
+React
+Vue.js
+None of these
+Does your project use TypeScript?
+where does your code run?
+Browser
+Node
+How would you link to define a style for you project
+use a popular style guide//市面主流风格
+  Airbnb:https://github.com/airbnb/javascript//airbnb公司风格
+  Standard:https://github.com/standard/standard//开源社区规范，特点：语句末尾不加分号
+  Google:https://github.com/google/eslint-config-google//谷歌风格
+answer questions about your style//通过询问问题形成你的风格
+inspect your JaveScript file(s)//根据你的代码文件推断你的风格
+What format do you went your config file to be in?
+JavaScript
+YAML
+JSON
+Would you like to install them now with npm? · No / Yes
+
+
+eslint基础使用yarn eslint ./01test.js
+在有语法错误时，只会抛出语法错误，没有语法错误后，才会检查其他规范、风格类错误。
+
+自动修正风格错误
+yarn eslint ./01test.js --fix
+
+
+查看风格默认配置：
+在node_modules->eslint-config-standard->eslintrc.json中，有standard风格代码的默认配置
+
+
+env运行环境配置：
+browser - browser global variables.
+node - Node.js global variables and Node.js scoping.
+commonjs - CommonJS global variables and CommonJS scoping (use this for browser-only code that uses Browserify/WebPack).
+shared-node-browser - Globals common to both Node.js and Browser.
+es6 - enable all ECMAScript 6 features except for modules (this automatically sets the ecmaVersion parser option to 6).
+es2017 - adds all ECMAScript 2017 globals and automatically sets the ecmaVersion parser option to 8.
+es2020 - adds all ECMAScript 2020 globals and automatically sets the ecmaVersion parser option to 11.
+worker - web workers global variables.
+amd - defines require() and define() as global variables as per the amd spec.
+mocha - adds all of the Mocha testing global variables.
+jasmine - adds all of the Jasmine testing global variables for version 1.3 and 2.0.
+jest - Jest global variables.
+phantomjs - PhantomJS global variables.
+protractor - Protractor global variables.
+qunit - QUnit global variables.
+jquery - jQuery global variables.
+prototypejs - Prototype.js global variables.
+shelljs - ShellJS global variables.
+meteor - Meteor global variables.
+mongo - MongoDB global variables.
+applescript - AppleScript global variables.
+nashorn - Java 8 Nashorn global variables.
+serviceworker - Service Worker global variables.
+atomtest - Atom test helper globals.
+embertest - Ember test helper globals.
+webextensions - WebExtensions globals.
+greasemonkey - GreaseMonkey globals.
+
+
+eslint可以通过注释的方式禁用指定行指定规则的校验
+例：
+const str1 = '${name} is a coder' //eslint-disable-line no-template-curly-in-string
+
+可以在http://eslint.cn/docs/user-guide/configuring#configuring-rules看到注释的更多用法
