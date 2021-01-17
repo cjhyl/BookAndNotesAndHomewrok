@@ -1,0 +1,11 @@
+解构类似数组，但里面的元素不允许重复。可用于去重
+const s=new Set();
+s.add(1).add(2).add(3).add(4);
+s.add(1);//不产生作用，不允许重复。
+s.has(3);//检测是否有某元素 true
+s.has(100);//false
+s.delete(3);//删除某个数据true
+s.clear();//清空所有数据
+
+var arr=[1,2,3,2,1,4,6,5];
+var arr2=Array.from(new Set(arr))

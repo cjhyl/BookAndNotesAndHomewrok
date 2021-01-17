@@ -1,0 +1,5 @@
+不带默认值的参数不能放在带默认值的参数后面。
+
+function fn(a=1,b){}//错误
+function fn(a=1,b=2){}//正确
+function fn(a,b=2){}//正确

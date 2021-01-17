@@ -1,0 +1,10 @@
+const arr=[100,200,300,400];
+const [first,,third]=arr;//普通解构
+console.log(first,third);
+const [first2,...rest]=arr;//接收剩余变量数组
+console.log(first2,rest)
+const [one,two,three,four='four',five='five']=arr;//默认值
+console.log(four,five)
+const path='aaa/bbb/ccc';
+const [,,endPathName]=path.split('/')//字符串解构
+console.log(endPathName);

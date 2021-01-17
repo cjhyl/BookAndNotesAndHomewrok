@@ -1,0 +1,28 @@
+const obj={name:'cjh',age:38};
+const str = `
+hello
+${obj.name}
+world
+`;
+console.log(str)
+
+//添加标签
+const str2 =console.log `
+hello
+${obj.name}
+world
+`;
+let fStr=function(){
+	console.log(arguments);
+}
+const str3 = fStr`
+hello
+${obj.name}
+world
+`;
+
+includes、startWith、endWith
+includes//是否包含某个元素 返回Bool型
+startWith//是否以某个元素结束 返回Bool型
+endWith//是否以某个元素结束 返回Bool型
+也适用于数组

@@ -1,0 +1,13 @@
+比Object来说，key值更广泛，例如可以用true,123456，{a:1}等作为key值。
+
+var tom = {name:'tom'};
+var m = new Map();
+m.set(tom,90);
+console.log(m);
+console.log(m.get(tom));
+
+方法
+.has
+.delete
+.clear
+.forEach

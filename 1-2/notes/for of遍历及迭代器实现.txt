@@ -1,0 +1,49 @@
+for of适合遍历数组类数据，还适合遍历arguments、Set、Map
+
+const m = new Map();
+m.set('foo','123');
+m.set('bar','456');
+for(let [key,val] of m){
+	console.log(key,val)
+}
+
+
+符合for of遍历的数据，内部都实现了一个key为Symbol.iterator的疑似generator函数。
+const s = new Set(['a','b','c','d','e']);
+const iter = s[Symbol.iterator]();
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+console.log(iter.next());
+
+实现迭代器接口，使对象也能被for of遍历。
+const obj={
+	store:['a','b','c','d'],
+//普通实现方法
+//	[Symbol.iterator]:function(){
+//		let index=0;
+//		const self=this;
+//		return {
+//			next:function(){
+//				const result = {
+//					value:self.store[index],
+//					done:index>=self.store.length
+//				}
+//				index++;
+//				return result;
+//			}
+//		}
+//	}
+//生成器generator实现方法
+	[Symbol.iterator]:function * (){
+		for(const item of this.store){
+			yield item;
+		}
+	}
+}
+for(const item of obj){
+	console.log('循环',item)
+}

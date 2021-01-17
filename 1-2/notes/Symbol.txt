@@ -1,0 +1,12 @@
+Symbol用于创建一个独一无二的标识。
+var syName=Symbol();
+var person={
+	[syName]:'cjh'
+}
+console.log(person,person[syName]);
+
+
+Symbol('foo');//添加字符串标识
+Symbol.for('foo');//添加与字符串相对应的唯一标识。
+使用Symbol作为key时，常规for in、Object.keys无法访问，需要使用Object.getOwnPropertySymbols(obj)才能查询到。
+比较适合作为对象的私有属性使用。

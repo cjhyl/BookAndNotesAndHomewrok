@@ -1,0 +1,12 @@
+for(let i=0;i<3;i++){
+	let i='foo';
+	console.log(i);//将会打印三个foo
+}
+
+let声明的变量不会变量提升。
+
+console.log(ii);//不会报错，值为undefined
+var ii=1;
+
+console.log(iii);//会报错，该变量不存在
+let iii=1;

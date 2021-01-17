@@ -1,0 +1,5 @@
+Object.values//返回对象值
+Object.entries//返回对象的key value
+Object.getOwnPropertyDescriptors//获取属性更详细的描述
+字符串padStart,padEnd，填充开始、结束位置，指定长度的指定字符的差异。
+Async Await

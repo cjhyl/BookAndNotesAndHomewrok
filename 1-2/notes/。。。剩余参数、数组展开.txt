@@ -1,0 +1,19 @@
+点点点参数只能放在参数的最后一位。
+
+function foo(...args){
+	console.log(args);
+	console.log(typeof args,args instanceof Array);
+}
+
+foo(1,2,3);
+foo(1)
+foo(2)
+
+
+数组展开：
+var arr=[1,2,3,4,5,'a','b','c'];
+console.log.apply(console,arr);
+console.log(...arr);
+var arr2=[];
+arr2.push(...arr);
+console.log(arr2);

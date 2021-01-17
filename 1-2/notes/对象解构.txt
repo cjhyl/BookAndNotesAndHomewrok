@@ -1,0 +1,7 @@
+const obj = {name:'cjh',age:38}
+const {name}=obj;
+console.log(name);
+
+
+const {name:myName,age:myAge=16,sex='man'}=obj//变量重命名，默认值
+console.log(myName,myAge,sex)

@@ -1,0 +1,61 @@
+对象字面量增强
+var bar="aaa";
+var obj={
+	foo:'123',
+	bar,//等价于bar:'aaa'
+	fn(){},//等价于fn:function(){}
+	[1+1]:''//方括号 计算属性名
+}
+
+Object.assign
+//1、将多个对象中的属性复制到目标对象中 
+//2、相同名称的属性，后面的覆盖前面的 
+//3、可用于深度复制
+const obj1={a:123,b:234};
+const obj2={a:777,b:888};
+const target={a:456,c:666}
+const rl1=Object.assign(target,obj1,obj2);//复制并覆盖
+console.log(rl1)
+const rl2=Object.assign({},rl1);//深度复制
+console.log(rl2)
+
+
+Object.is
+//判断两个值是否相等 有部分特性与以前的相等运算符不同 暂时用途不广
+0==false//true
+0===false//false
++0===-0//true
+NaN===NaN//false
+Object.is(+0,-0)//false
+Object.is(NaN,NaN)//true
+
+
+Proxy
+//代理对象 监视对象读、写过程 
+//比defineProperty功能更多，更便捷，可监视对象delete属性、方法调用、数组变化，使用的是非侵入方式
+const person={name:'cjh',age:38,sex:'man'};
+const personPxy=new Proxy(person,{
+	get(target,prop){
+		console.log(target,prop);
+		return prop in target?target[prop]:'none value';
+	},
+	set(target,prop,value){
+		console.log(target,prop,value);
+		if(prop==='age'){
+			if(!Number.isInteger('value')){
+				throw new Error('age must be int');
+				return false;
+			}
+		}
+		target[prop]=value;
+		return true;
+	}
+})
+console.log(personPxy.name);//访问，响应get
+console.log(personPxy.xxx);//访问，响应get
+personPxy.name="cai jin hong";//设置，响应set
+personPxy.age="cai jin hong";//设置，响应set
+
+
+Reflect
+//Proxy内置默认方法 一套统一的操作对象的API
