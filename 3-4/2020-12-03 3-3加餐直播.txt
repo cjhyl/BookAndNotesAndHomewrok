@@ -1,0 +1,36 @@
+nuxtjs客户端渲染配置
+添加nuxt.config.js
+export default{
+  ssr: false//默认true
+}
+
+nuxtjs静态网站预渲染
+export default{
+  ssr: false,
+  target: 'static'
+}
+运行npm run generate生成纯静态网站。
+
+
+nuxt vercel部署：
+nuxt官网的vercel配置文档中：
+服务端渲染的nuxtjs配置：
+项目根目录添加vercel.json：（不是now.json）
+
+{
+  "builds" [
+    "src": "nuxt.config.js",
+    "use": "@nuxtjs/vercel-builder"
+    "config": {}
+  ]
+}
+
+把代码提交到github仓库
+
+vercel网站首页点击import project按钮，点击continue按钮，粘贴github地址，点击continue按钮，继续continue，进入页面配置修改页面，大多情况下默认即可，点击deploy按钮
+
+
+
+vue press：用来做文档类网站的工具，例如vue官网api文档。
+vuepress.vuejs.org
+需要熟悉markdown语法

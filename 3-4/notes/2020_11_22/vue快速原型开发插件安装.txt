@@ -1,0 +1,9 @@
+npm install -g @vue/cli-service-global
+前提是已经全局安装了@vue/cli。
+然后可以使用vue serve快速查看组件的运行效果。
+
+vue serve使用规则：
+如果不指定参数，会默认查找以下入口文件：
+main.js、index.js、App.vue、app.vue
+指定参数，格式：vue serve ./src/login.vue
+

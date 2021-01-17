@@ -1,0 +1,9 @@
+讲述了Vue组件通信、Vue国际化、vant、Nuxt，及一些部署问题。
+
+provide,inject祖孙通信。
+v-model也有默认的父子通信机制
+v-bind:title.sync表示子组件发生变化时，该值也会变化，本质是this.$emit('update:title',new title)。
+
+
+vue国际化使用vue-i18n
+vue-element-admin，i18n分支，一个带了国际化的后台管理模板，换肤、中日英等。

@@ -1,0 +1,56 @@
+query {
+  allStrapiPost(perPage: 2, page: 3) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
+    edges{
+      node{
+        id
+        title
+        content
+        tags{
+          id
+          title
+        }
+        author{
+          id
+          title
+        }
+        created_at
+      }
+    }
+  }
+}
+
+
+
+
+<page-query>
+query ($page: Int) {
+  posts: allStrapiPost(perPage: 2, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
+    edges{
+      node{
+        id
+        title
+        content
+        tags{
+          id
+          title
+        }
+        author{
+          id
+          title
+        }
+        created_at
+      }
+    }
+  }
+}
+</page-query>
+
+

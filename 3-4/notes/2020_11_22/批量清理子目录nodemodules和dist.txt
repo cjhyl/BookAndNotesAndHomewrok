@@ -1,0 +1,15 @@
+根目录下配置：
+
+//清理子目录的node_modules
+"clean": "lerna clean"
+根目录输入
+yarn clean
+
+
+安装插件
+yarn add rimraf -D -W
+子目录添加命令：
+"del": "rimraf dist"
+
+根目录中输入：
+yarn workspaces run del

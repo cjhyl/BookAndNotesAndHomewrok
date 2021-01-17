@@ -1,0 +1,24 @@
+首页，点击Import Project
+左侧的Import Git Repository，点击Continue
+输入框中输入自己的git项目网址，点击Continue
+进入Import Project页面
+PROJECT NAME：自动识别的项目名称
+FRAMEWORK PRESET：自动识别的框架
+Build and Output Settings：构建输出设置。
+BUILD COMMAND：默认构建命令，如果不符合点击右侧OVERRIDE然后自行修改。
+OUTPUT DIRECTORY：默认输出目录，不符合处理同上。
+Environment Variables：环境变量设置。
+点击Deploy按钮开始部署。
+成功的话跳转到Congratulations!页面，还有撒花特效。
+
+
+自动部署设置：
+如果github仓库有改变的话，会自动重新部署，下面介绍的是，strapi服务发生改变，也让它自动部署的方法。
+
+vercel项目的Settings中：
+选择Git，找到Deploy Hooks板块，输入自定义钩子名Hook Name和部署的分支名Git Branch Name，点击Create Hook
+复制生成的url
+strapi后台的Settings中的Webhooks中，添加新的webhook，起名，粘贴url，勾选下面的Entry和Media。
+
+https://blog-gridsome-front.vercel.app/
+https://api.vercel.com/v1/integrations/deploy/prj_nLzb85Uq0ZEfZcHkDAmDdMuZTFJb/Pnfa05DvXw

@@ -1,0 +1,145 @@
+创建项目：
+npx create-strapi-app my-project --quickstart
+npm run develop
+
+开始使用：
+先注册用户
+添加数据集合：
+内容类型生成器->添加新的集合->输入集合名称->配置集合各字段。
+然后在集合菜单中会生成该集合菜单，点击菜单进入页面，添加数据内容。
+
+
+请求数据：
+之前添加的数据内容记得设置为Published
+设置->角色&权限->设置Public权限为可以获取数据。
+然后可以通过如GET http://localhost:1337/posts来获取post集合中的数据
+
+
+
+
+登录有操作数据权限的账号操作数据流程：
+设置->角色和权限->Authenticated设置中添加所有权限。
+用户->添加新的user，添加一个新角色，权限设置为Authenticated
+请求接口
+POST
+http://localhost:1337/auth/local
+{
+
+"identifier": "账号或邮箱",
+
+"password": "密码"
+
+}
+拿到token
+再请求操作接口，例如：
+POST
+http://localhost:1337/posts
+{
+
+"title":"Post 3",
+
+"content":"post 3 content"
+
+}
+Headers中添加
+Authorization:Bearer token的值
+
+
+安装graphql后，通过  访问graphql页面：
+查询示例：
+query {
+  posts {
+    id
+    title
+    content
+  }
+}
+
+query {
+  post (id:1){
+    title
+    content
+  }
+}
+
+
+gridsome项目的graphql页面中：
+之前查询md数据的格式
+query {
+  allBlogPost{
+    edges{
+      node{
+        id
+        path
+        content
+      }
+    }
+  }
+}
+现在查询strapi数据的格式：
+query {
+  allStrapiPost{
+    edges{
+      node{
+        id
+        title
+        content
+      }
+    }
+  }
+}
+query {
+  strapiPost(id:2){
+    title
+    content
+  }
+}
+
+
+正式添加数据：
+删除之前的post数据，添加新的，
+新的post集合字段为title(标题),content(内容),cover(图片),is_publish(是否发布状态)
+添加tag集合，title(标题)，添加引用关系posts，与post关联，关系为多对多。
+关联查询方式示例：
+query {
+  posts{
+    title
+    content
+    tags{
+      title
+    }
+  }
+}
+query {
+  tags{
+    title
+    posts{
+      title
+    }
+  }
+}
+
+
+
+
+strapi后台的富文本编辑器可以使用markdown格式
+示例：
+
+- 列表1
+- 列表2
+
+> 这时引用
+
+不过要在前端使用，需要使用一些第三方包，如markdown-it
+npm install markdown-it
+在js中引用
+import MarkdownIt from 'markdown-it'
+const md = new MarkdownIt()
+md.render(xxx)
+
+
+strapi添加个体数据（例如：首页顶部的标题、内容），使用添加SINGLE TYPE。但在gridsome的查询中依然是集合数据的查询方式
+
+如联系我们类的数据，需要设置public中的create权限，让所有人都能提交。
+
+pm2 start npm -- run start --name blog-backend

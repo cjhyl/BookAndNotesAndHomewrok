@@ -1,0 +1,24 @@
+文件路由：
+src/pages/Index.vue -> /
+src/pages/AboutUs.vue -> /about-us/
+src/pages/about/Vision.vue -> /about/vision/
+src/pages/blog/Index.vue -> /blog/
+按照文件路径名生成同名路由，大写转小写，驼峰式命名转中横杠分割命名
+
+
+编程式路由：
+在gridsome.server.js中：
+module.exports = function (api) {
+  api.createPages(({ createPage }) => {
+    createPage({
+      path: '/my-page',
+      component: './src/templates/MyPage.vue'
+    })
+  })
+}
+
+
+
+动态路由：
+src/pages/user/[id].vue becomes /user/:id.
+src/pages/user/[id]/settings.vue becomes /user/:id/settings.

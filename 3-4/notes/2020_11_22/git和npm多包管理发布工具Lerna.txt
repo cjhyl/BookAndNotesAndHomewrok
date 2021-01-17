@@ -1,0 +1,18 @@
+Lerna是一个优化使用git和npm管理多包仓库的工作流工具
+用于管理具有多个包的JavaScript项目
+它可以一键把代码提交到git和npm仓库
+
+它也可以管理依赖，可以选择使用yarn还是npm管理依赖,需要单独配置，如果使用yarn的话，也可以开启yarn workspaces。
+一般会把Lerna配合yarn workspaces结合使用，用Lerna发布，用yarn workspaces管理依赖。
+
+
+全局安装：
+yarn global add lerna
+初始化：
+lerna init
+初始化时，如果项目没有被git管理，会进行git初始化，在项目根目录创建一个lerna.json配置文件,在package.json中添加依赖。
+发布：
+lerna publish
+发布时，需要github远程仓库，需要登录npm，然后再运行lerna publish，可以同时把代码提交到github，并提交到npm。
+注意npm的镜像源是npm本来的地址。
+

@@ -1,0 +1,11 @@
+示例：
+在父组件中
+  provide () {
+    return {
+      title: this.title,
+      handle: this.handle
+    }
+  },
+在子组件、孙组件或者更深层的下级组件中
+inject: ['title', 'handle']
+即可访问父组件中的数据，但是其不是响应式的，如果修改Vue还会报出警告，告诉你不要进行修改。

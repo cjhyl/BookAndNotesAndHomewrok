@@ -1,0 +1,2 @@
+一、服务器pm2启动即stopped的问题。
+二、vercel网站的https资源访问路径问题，曾把strapi的配置url改为https，但访问后提示 此网站无法提供安全连接

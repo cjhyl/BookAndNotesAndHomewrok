@@ -1,0 +1,75 @@
+好处：
+提供描述组件行为的文档
+节省手动测试的时间
+减少研发新特性时产生的bug
+改进设计
+促进重构
+
+
+单元测试依赖：
+Vue Test Utils//vue官方组件测试官方库
+Jest//单元测试框架
+vue-jest//vue为jest服务的预处理器
+babel-jest//测试代码的es6降级处理
+
+-W表示安装到workspace中
+yarn add jest @vue/test-utils vue-jest babel-jest -D -W
+
+在package.json中：
+"scripts": {
+  "test": "jest",
+}
+
+jest.config.js中：
+module.exports = {
+  "testMatch": ["**/_tests_/**/*.[jt]s?(x)"],
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    // 告诉Jest处理'*.vue'文件
+    "vue"
+  ],
+  "transform": {
+    // 用'vue-jest'处理'*.vue'文件
+    ".*\\.(vue)$": "vue-jest",
+    // 用'babel-jest'处理js
+    ".*//.(js)$": "babel-jest"
+  }
+}
+
+babel.config.js中：
+module.exports = {
+  presets: [
+    [
+      '@babel/preset-env'
+    ]
+  ]
+}
+
+最后还需要添加babel桥接
+yarn add babel-core@bridge -D -W
+
+
+jest API
+全局函数
+describe(name, fn)//把相关测试组合在一起
+test(name, fn)//测试方法
+expect(value)//断言
+匹配器
+toBe(value)//判断值是否相等
+toEqual(obj)//判断对象是否相等
+toContain(value)判断数组或者字符串中是否包含
+...
+快照
+toMatchSnapshot()
+
+Vue Test Utils常用API
+mount()//创建一个包含被挂载和渲染的Vue组件的Wrapper
+Wrapper
+vm//wrapper包裹的组件实例
+props()//返回Vue实例选项中的props对象
+html()//组件生成的HTML标签
+find()通过选择器返回匹配到的组件中的DOM元素
+trigger()返回DOM原生事件，自定义事件wrapper.vm.$emit()
+...
+

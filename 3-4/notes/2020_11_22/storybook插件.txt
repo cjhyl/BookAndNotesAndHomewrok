@@ -1,0 +1,14 @@
+它是个可视化的组件展示平台
+它让我们在隔离的环境中，以交互式的方式展示组件
+使用它可独立开发组件
+它支持的框架：
+React、React Native、Vue、Angular
+Ember、HTML、Svelte、Mithril、Riot
+
+自动安装：
+//在已有项目中初始化这会在已有项目中添加一个button组件和welcome组件 init会主动监测已有项目的框架
+//npx -p @storybook/cli sb init
+//强制指定组件类型vue
+npx -p @storybook/cli sb init --type vue
+yarn add vue
+yarn add vue-loader vue-template-compiler --dev

@@ -1,0 +1,8 @@
+根目录安装插件，用于跨平台设置环境变量。
+yarn add cross-env -D -W
+
+
+"build:prod": "corss-env NODE_ENV=production rollup -c"
+"build:dev": "corss-env NODE_ENV=development rollup -c"
+
+yarn build:prod和yarn build:dev

@@ -1,0 +1,3 @@
+.env文件用来存放开发和生产环境的变量
+在gridsome.config.js中修改strapi配置属性中的apiURL。
+在项目中访问的话，在main.js中使用Vue.mixin注入，然后访问。

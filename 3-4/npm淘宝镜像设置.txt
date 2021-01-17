@@ -1,0 +1,10 @@
+¡Ÿ ±≈‰÷√
+npm --registry https://registry.npm.taobao.org install express
+”¿æ√≈‰÷√
+npm config set registry https://registry.npm.taobao.org
+≤Èø¥≈‰÷√
+npm config get registry
+ª÷∏¥
+npm config set registry https://registry.npmjs.org
+cnpm≈‰÷√
+npm install -g cnpm --registry=https://registry.npm.taobao.org

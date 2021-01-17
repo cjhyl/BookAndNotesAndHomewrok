@@ -1,0 +1,11 @@
+安装plop
+yarn add plop -W -D
+
+添加配置文件夹，里面添加模板文件
+
+根目录添加plopfile.js进行配置。
+
+添加命令：
+"plop": "plop"
+
+运行yarn plop可按照生成基本文件。
