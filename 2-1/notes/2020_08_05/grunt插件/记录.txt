@@ -1,0 +1,13 @@
+安装插件
+//清理插件
+yarn add grunt-contrib-clean
+
+常用插件
+//sass插件
+yarn add grunt-sass sass --dev
+//babel插件
+yarn add grunt-babel @babel/core @babel/preset-env  --dev
+//多任务插件
+yarn add load-grunt-tasks --dev
+//监视文件变化插件
+yarn add grunt-contrib-watch --dev

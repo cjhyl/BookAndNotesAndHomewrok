@@ -1,0 +1,19 @@
+安装yeoman
+yarn add yo global/npm install yo -g
+
+安装generator
+yarn add generator-node global/npm install generator-node -g
+
+通过yo运行generator
+yo node
+
+
+sub generator子模块
+yo node:cli
+yarn link/npm link
+yarn/npm install
+
+安装webapp模块
+yarn global add generator-webapp\npm install generator-webapp -gyo webapp
+
+

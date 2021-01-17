@@ -1,0 +1,36 @@
+//gulp-sass安装
+yarn add gulp-sass --dev
+
+//node-sass淘宝镜像配置
+yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
+
+//gulp-babel安装
+yarn add gulp-babel --dev
+yarn add @babel/core @babel/preset-env --dev
+
+//页面文件转换插件swig安装
+yarn add gulp-swig --dev
+
+//图片转换插件 需要等待国外二进制数据 无法配置镜像 不好安装
+yarn add gulp-imagemin --dev
+
+//文件删除插件
+yarn add del --dev
+
+//自动读取所有gulp插件的插件
+yarn add gulp-load-plugins --dev
+
+//开发服务器插件
+yarn add browser-sync --dev
+
+//安装bootstrap
+yarn add bootstrap@next
+
+//合并文件、压缩文件的插件
+yarn add gulp-useref --dev
+
+//压缩html、js、css文件的插件
+yarn add gulp-htmlmin gulp-uglify gulp-clean-css --dev
+
+//流判断插件
+yarn add gulp-if --dev

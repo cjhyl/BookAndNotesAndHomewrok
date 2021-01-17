@@ -1,0 +1,30 @@
+//安装sass
+yarn add sass --dev
+//命令行运行sass命令转换scss文件为css
+.\node_modules\.bin\sass scss/main.scss css/style.css
+//package.json中添加script运行上面的命令
+"script":{
+    "build":"sass scss/main.scss css/style.css"
+  }
+//安装模拟服务器运行文件
+yarn add browser-sync --dev
+//script中模拟服务器运行命令
+"script":{
+    "serve":"browser-sync ."
+  }
+//build和serve之间添加命令，使运行yarn serve时自动先执行yarn build
+"preserve":"yarn build",
+
+//添加scss文件监听  --watch
+"build": "sass scss/main.scss css/style.css --watch",
+
+//watch后会阻塞serve运行，yarn add npm-run-all --dev，修改script，然后运行yarn start即可
+  "scripts": {
+    "build": "sass scss/main.scss css/style.css --watch",
+    "serve": "browser-sync .",
+    "start": "run-p build serve"
+  },
+
+//* --files \"css/*.css\""添加此命令可以实时监听文件变化并更新到浏览器
+"serve": "browser-sync . --files \"css/*.css\"",
+

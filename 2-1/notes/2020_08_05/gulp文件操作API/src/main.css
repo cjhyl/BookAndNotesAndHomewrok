@@ -1,0 +1,298 @@
+*{padding:0;margin:0;font-family:微软雅黑,"Microsoft YaHei",黑体,"SimHei",苹方黑体,"PingFang SC","PingFang TC","San Francisco Pro",思源黑体,"Noto SansCJK","Roboto";-webkit-user-select:none;}
+html,
+body{width:100%;height:100%;overflow:hidden;}
+html{font-size:100px;}
+ul,li{list-style:none;}
+
+#mapContainer{position:absolute;width:1920px;height:1080px;top:0;left:0;z-index:0;}
+#mapContainerCoverHome,
+#mapContainerCoverChild{position:absolute;width:1920px;height:1080px;top:0;left:0;background-size:100% 100%;background-repeat:no-repeat;z-index:1;}
+
+.loading{z-index:9;}
+.loading .txt{width:200px;height:50px;position:absolute;top:50%;left:50%;margin:-25px 0 0 -100px;font-size:48px;color:#ffffff;line-height:50px;text-align:center;}
+
+.content{width:1920px;height:10px;position:absolute;top:0;left:0;z-index:3;}
+
+.home .cName{position:absolute;top:207px;left:0;width:1920px;height:94px;line-height:94px;text-align:center;color:#F5446C;font-size:70px;}
+.home .eName{position:absolute;top:303px;left:0;width:1920px;height:28px;line-height:28px;text-align:center;color:#A7A0FF;font-size:25px;float:left;}
+.home .navBg{position:absolute;top:429px;left:0;width:1920px;height:136px;text-align:center;font-size:0;float:left;}
+.home .navList{width:688px;height:136px;display:inline-block;}
+.home .navList li{width:172px;height:136px;text-align:center;float:left;position:relative;}
+.home .navList .iconHover{width:94px;height:94px;position:absolute;top:0;left:50%;margin-left:-47px;}
+.home .navList .icon{width:94px;height:94px;display:inline-block;}
+.home .navList .txt{margin-top:7px;width:100%;height:27px;line-height:27px;text-align:center;color:#ffffff;font-size:20px;display:inline-block;}
+
+.faceCheck .tip{width:510px;height:47px;line-height:47px;position:absolute;top:168px;left:50%;margin-left:-255px;text-align:center;font-size:35px;color:#F5446C;}
+.faceCheck .faceBg{width:240px;height:240px;position:absolute;top:256px;left:50%;margin-left:-120px;}
+.faceCheck .p1{width:13px;height:13px;position:absolute;right:18px;top:40px;}
+.faceCheck .p2{width:17px;height:17px;position:absolute;left:19px;bottom:39px;}
+.faceCheck .face{width:210px;height:210px;position:absolute;top:15px;left:15px;border-radius:105px;}
+.faceCheck .checkIcon{width:74px;height:74px;border-radius:37px;position:absolute;top:168px;left:165px;}
+.faceCheck .backCount{width:280px;height:33px;position:absolute;top:612px;left:50%;margin-left:-140px;text-align:center;line-height:33px;color:#D2CCFF;font-size:25px;}
+
+.faceCarList .tip0{width:100%;height:47px;line-height:47px;text-align:center;position:absolute;top:118px;left:0px;color:#F5446C;font-size:35px;}
+.faceCarList .tip1{width:100%;height:33px;line-height:33px;text-align:center;position:absolute;top:331px;left:0px;color:#F5446C;font-size:25px;}
+.faceCarList .faceBg0{position:absolute;top:182px;left:50%;margin-left:-60px;}
+.faceCarList .list{width:1844px;height:282px;position:absolute;left:50%;margin-left:-922px;top:402px;font-size:0;text-align:center;}
+.faceCarList .list>li{width:306px;height:279px;margin:0 10px;background:rgba(27,28,49,0.5);border:1px #7670BF solid;border-radius:0 0 10px 10px;display:inline-block;}
+.faceCarList .list .image{width:306px;height:230px;background:#fff;float:left;}
+.faceCarList .list .txt{width:306px;height:48px;border-top:1px #7670BF solid;float:left;line-height:48px;text-align:center;font-size:18px;color:#ffffff;}
+
+.bindCar .bindingBg,
+.bindCar .bindSuccessBg{width:1920px;height:1080px;position:absolute;top:0;left:0;}
+.bindCar .faceBg{width:118px;height:118px;border:3px #7670bf solid;border-radius:60px;position:absolute;top:-59px;left:50%;margin-left:-59px;}
+.bindCar .face{width:108px;height:108px;float:left;margin:5px 0 0 5px;border-radius:54px;}
+.bindCar .tip1,
+.bindCar .tip2{width:100%;position:absolute;left:0;text-align:center;color:#f5446c;}
+.bindCar .tip1{height:47px;line-height:47px;top:282px;font-size:35px;}
+.bindCar .tip2{height:33px;line-height:33px;top:332px;font-size:25px;}
+.bindCar .bindSuccess{width:874px;height:470px;left:50%;top:276px;margin-left:-438px;}
+.bindCar .bindSuccess .line{width:1px;height:106px;background:#7670BF;position:absolute;top:151px;left:331px;}
+.bindCar .bindSuccess .rightIcon{width:74px;height:74px;position:absolute;top:167px;left:230px;}
+.bindCar .bindSuccess .carIcon{width:73px;height:48px;position:absolute;top:180px;left:358px;}
+.bindCar .bindSuccess .tips{width:260px;height:47px;line-height:47px;font-size:35px;color:#F5446C;position:absolute;top:207px;left:449px;}
+.bindCar .bindSuccess .carNum{width:209px;height:45px;line-height:45px;background:(245,68,108,0.1);border:1px #7670BF solid;border-radius:7px;text-align:center;font-size:25px;color:#F5446C;position:absolute;top:150px;left:449px;}
+.bindCar .bindSuccess .carNumBg0{width:209px;height:45px;line-height:45px;font-size:25px;position:absolute;top:150px;left:449px;}
+.bindCar .bindSuccess .backCount{width:260px;height:33px;line-height:33px;font-size:25px;color:#D2CCFF;position:absolute;top:332px;left:386px;}
+
+.carManageHome .faceBg0{position:absolute;top:215px;left:50%;margin-left:-62px;}
+.carManageHome .tip0{width:450px;height:47px;line-height:47px;position:absolute;top:352px;left:50%;margin-left:-225px;color:#F5446C;font-size:35px;text-align:center;}
+.carManageHome .tip1{width:450px;height:33px;line-height:33px;position:absolute;top:402px;left:50%;margin-left:-225px;color:#F5446C;font-size:25px;text-align:center;}
+.carManageHome .btnList{width:936px;height:53px;position:absolute;top:551px;left:50%;margin-left:-468px;}
+.carManageHome .btnList>li{width:222px;height:53px;margin:0 45px;position:relative;float:left;}
+.carManageHome .btnList>li .bg,
+.carManageHome .btnList>li .txt{width:222px;height:53px;position:absolute;top:0;left:0;}
+.carManageHome .btnList>li .txt{line-height:53px;font-size:30px;color:#ffffff;text-align:center;}
+
+.carManageList .listBg0{width:874px;min-height:405px;top:276px;left:50%;margin-left:-437px;}
+.carManageList .faceBg0{position:absolute;top:-62px;left:50%;margin-left:-62px;} 
+.carManageList .tip0{width:280px;height:47px;line-height:47px;text-align:center;font-size:35px;color:#F5446C;float:left;margin:76px 0 52px 299px;}
+.carManageList .list{width:322px;margin-left:299px;float:left;}
+.carManageList .list li{width:322px;height:47px;margin-bottom:31px;float:left;}
+.carManageList .list .carNumBg0{width:231px;height:45px;line-height:45px;font-size:25px;float:left;}
+.carManageList .list .del{width:25px;height:30px;margin:8px 0 0 20px;position:relative;float:left;}
+.carManageList .list .del .icon{width:25px;height:30px;float:left;}
+.carManageList .list .del>div{width:25px;height:30px;position:absolute;top:0;left:0;}
+.carManageList .addBtn{width:195px;height:53px;margin:34px 0 53px 342px;position:relative;float:left;}
+.carManageList .addBtn .icon{width:195px;height:53px;float:left;}
+.carManageList .addBtn>div{width:195px;height:53px;position:absolute;top:0;left:0;line-height:53px;text-align:center;font-size:30px;color:#ffffff;}
+.carManageList .dlgBg{width:699px;min-height:306px;position:absolute;top:50%;left:50%;margin:-153px 0 0 -350px;}
+.carManageList .dlgBg .txt{width:656px;min-height:105px;margin:37px 0 0 21px;line-height:47px;text-align:center;color:#F5446C;font-size:35px;float:left;}
+.carManageList .dlgBg .btnBg{width:100%;height:53px;margin:83px 0 0 30px;float:left;font-size:0;text-align:center;}
+.carManageList .dlgBg .btn{width:195px;height:53px;display:inline-block;margin:0 57px;position:relative;}
+.carManageList .dlgBg .btn .icon{width:195px;height:53px;float:left;}
+.carManageList .dlgBg .btn>div{width:195px;height:53px;position:absolute;top:0;left:0;line-height:53px;text-align:center;font-size:30px;color:#ffffff;}
+
+.findByPos .tip0{width:400px;height:47px;line-height:47px;position:absolute;top:137px;left:50%;margin-left:-200px;text-align:center;color:#F5446C;font-size:35px;}
+.findByPos .posSearchBg{position:absolute;top:217px;left:50%;margin-left:-347px;}
+
+.findByCard .tip1{top:81px;}
+.findByCard .carNumList{top:201px;}
+.findByCard .searchBtn{width:222px;height:53px;position:absolute;top:352px;left:338px;}
+.findByCard .searchBtn .icon{width:222px;height:53px;float:left;}
+.findByCard .searchBtn .txt{width:100%;height:100%;position:absolute;top:0;left:0;line-height:53px;text-align:center;color:#ffffff;font-size:30px;}
+
+.findCarList .bg0{width:1727px;height:609px;top:191px;left:50%;margin-left:-863px;}
+.findCarList .tip0{width:100%;height:47px;line-height:47px;text-align:center;position:absolute;top:73px;left:0px;color:#F5446C;font-size:35px;}
+.findCarList .tip1{width:100%;height:33px;line-height:33px;text-align:center;position:absolute;top:130px;left:0px;color:#F5446C;font-size:25px;}
+.findCarList .list{width:1642px;height:282px;position:absolute;left:42px;top:222px;}
+.findCarList .list>li{width:306px;height:279px;margin:0 10px;float:left;background:rgba(27,28,49,0.5);border:1px #7670BF solid;border-radius:0 0 10px 10px;}
+.findCarList .list .image{width:306px;height:230px;background:#fff;float:left;}
+.findCarList .list .txt{width:306px;height:48px;border-top:1px #7670BF solid;float:left;line-height:48px;text-align:center;font-size:18px;color:#ffffff;}
+
+.rControlBg{width:124px;height:801px;position:absolute;top:139px;right:40px;background:rgba(27,28,49,0.5);border:1px #9A4659 solid;border-right:0;border-radius:30px 0 0 30px;}
+.rControlBg .tList{width:100%;height:488px;float:left;}
+.rControlBg .tList>li{width:100%;height:72px;margin:20px 0 30px 0;float:left;}
+.rControlBg .tList .iconBg{width:100%;height:42px;position:relative;float:left;}
+.rControlBg .tList .iconBg .icon{position:absolute;top:50%;left:50%;}
+.rControlBg .tList .iconBg .car{width:47px;height:31px;margin:-15px 0 0 -24px;}
+.rControlBg .tList .iconBg .find{width:43px;height:42px;margin:-24px 0 0 -21px;}
+.rControlBg .tList .iconBg .look{width:44px;height:42px;margin:-25px 0 0 -22px;}
+.rControlBg .tList .txt{width:100%;height:30px;line-height:30px;text-align:center;color:#ffffff;font-size:18px;float:left;}
+.rControlBg .bList{width:100%;height:294px;float:left;}
+.rControlBg .bList>li{width:46px;height:46px;margin:24px 0 0 38px;position:relative;float:left;}
+.rControlBg .bList>li .normal,
+.rControlBg .bList>li .sel{width:46px;height:46px;float:left;}
+.rControlBg .bList>li .sel{display:none;}
+.rControlBg .bList>li:active .normal{display:none;}
+.rControlBg .bList>li:active .sel{display:block;}
+.rControlBg .bList>li.sel .normal{display:none;}
+.rControlBg .bList>li.sel .sel{display:block;}
+
+.lControlBg{width:341px;height:783px;position:absolute;top:132px;left:35px;background:rgba(27,28,49,0.5);border:1px #9A4659 solid;border-left:0;border-radius:0 0 30px 0;}
+.lControlBg .carCard{width:339px;height:312px;float:left;background:rgba(27,28,49,0.5);border:1px #7670BF solid;border-radius:0 0 10px 10px;}
+.lControlBg .carCard .image{width:339px;height:256px;background:#fff;float:left;}
+.lControlBg .carCard .txt{width:339px;height:56px;border-top:1px #7670BF solid;float:left;line-height:56px;text-align:center;font-size:18px;color:#ffffff;}
+.lControlBg .infoBg{width:341px;height:84px;float:left;}
+.lControlBg .infoBg .iconBg{width:33px;height:33px;margin:26px 12px 0 88px;float:left;position:relative;}
+.lControlBg .infoBg .iconBg .icon{width:33px;height:33px;float:left;}
+.lControlBg .infoBg .txtBg{width:140px;height:84px;float:left;}
+.lControlBg .infoBg .txtBg .txt{width:140px;height:84px;float:left;display:flex;align-items:center;color:#FFEDF1;font-size:20px;}
+.lControlBg .line{width:295px;height:1px;margin:28px 0 0 22px;background:#F5446C;float:left;}
+.lControlBg .payBg,
+.lControlBg .payed{width:341px;height:281px;float:left;}
+.lControlBg .payedTip{display:flex;align-items:center;justify-content:center;}
+.lControlBg .payedTip>span{color:#F5446C;font-size:28px;}
+.lControlBg .payTip{width:341px;height:50px;margin-top:12px;float:left;line-height:50px;text-align:center;font-size:0;}
+.lControlBg .payTip>.num{color:#ffffff;font-size:38px;padding-right:5px;}
+.lControlBg .payTip>.word{color:#ffffff;font-size:27px;position: relative;top:-3px;}
+.lControlBg .payList{margin-left:70px;width:202px;height:196px;float:left;}
+.lControlBg .payList li{margin:6px 0;width:202px;height:53px;float:left;position:relative;}
+.lControlBg .payList .bg{width:202px;height:53px;position:absolute;top:0;left:0;}
+.lControlBg .payList .icon{width:26px;height:26px;margin:14px 10px 0 40px;float:left;position:relative;}
+.lControlBg .payList .txt{width:120px;height:53px;float:left;line-height:53px;color:#ffffff;font-size:20px;}
+
+.payByFaceBg{width:697px;height:528px;position:absolute;top:50%;left:50%;margin:-264px 0 0 -348px;}
+.payByFaceBg .tip{width:100%;height:47px;line-height:47px;text-align:center;font-size:35px;color:#F5446C;position:absolute;left:0;top:59px;}
+.payByFaceBg .backCount{width:100%;height:30px;line-height:30px;text-align:center;font-size:22px;color:#F5446C;position:absolute;left:0;top:110px;}
+.payByFaceBg .successIcon,
+.payByFaceBg .failIcon{width:132px;height:132px;position:absolute;left:284px;top:199px;}
+.payByFaceBg .dlgBtn.L{position:absolute;bottom:60px;left:98px;}
+.payByFaceBg .dlgBtn.R{position:absolute;bottom:60px;right:98px;}
+.payByFaceBg .dlgBtn.M{position:absolute;bottom:60px;left:251px;}
+.payByFaceBg.check .faceBg{width:240px;height:240px;position:absolute;top:150px;left:50%;margin-left:-120px;}
+.payByFaceBg.check .p1{width:13px;height:13px;position:absolute;right:18px;top:40px;}
+.payByFaceBg.check .p2{width:17px;height:17px;position:absolute;left:19px;bottom:39px;}
+.payByFaceBg.check .face{width:210px;height:210px;position:absolute;top:15px;left:15px;border-radius:105px;}
+.payByFaceBg.paying .tip{width:100%;height:47px;line-height:47px;text-align:center;font-size:35px;color:#F5446C;position:absolute;left:0;top:59px;}
+.payByFaceBg.paying .faceBg0{position:absolute;top:179px;left:135px;}
+.payByFaceBg.paying .account{width:236px;height:24px;line-height:24px;text-align:center;color:#ffffff;font-size:18px;position:absolute;top:317px;left:79px;}
+.payByFaceBg.paying .carNum,
+.payByFaceBg.paying .payNum{width:320px;height:43px;line-height:43px;color:#ffffff;font-size:32px;position:absolute;left:363px;}
+.payByFaceBg.paying .carNum{top:211px;}
+.payByFaceBg.paying .payNum{top:272px;}
+
+
+
+
+
+.childBackBg{width:194px;height:54px;border:1px transparent solid;border-top:0;border-radius:0 0 20px 20px;position:absolute;top:38px;left:50%;margin-left:-97px;}
+.childBackList{width:194px;height:54px;float:left;}
+.childBackList>li{width:97px;height:54px;float:left;position:relative;}
+.childBackList>li:after{content:"";position: absolute;width:2px;height:44px;top:5px;right:-1px;background:none;}
+.childBackList>li:last-child:after{background: transparent;}
+.childBackList .icon{position:absolute;top:50%;left:50%;}
+.childBackList .icon.home{width:26px;height:26px;margin:-13px 0 0 -13px;}
+.childBackList .icon.back{width:28px;height:24px;margin:-12px 0 0 -14px;}
+
+
+.carNumBg{top:276px;left:121px;width:874px;height:470px;}
+.carNumList{width:788px;height:81px;position:absolute;top:142px;left:50%;margin-left:-394px;font-size:0;text-align:center;}
+.carNumList>li{width:53px;height:79px;background:#1f1933;border:1px #1f1933 solid;border-radius:10px;margin:0 13px;display:inline-block;position: relative;}
+.carNumList>li.focus,
+.carNumList>li.sel{background:#2c2446;border-color:#7670bf;}
+.carNumList>li .clickdiv{width:100%;height:100%;top:0;left:0;position:absolute;z-index:1;}
+.carNumList>li .line{display:none;}
+.carNumList>li.focus .line{display:block;width:1px;height:40px;background:#ffffff;position:absolute;top:50%;margin-top:-20px;left:50%;}
+.carNumList>li .txt{width:53px;height:79px;position: absolute;top:0;left:0;text-align:center;color:#f5446c;line-height:79px;font-size:35px;}
+.carNumList>li.area .txt{font-size:30px;}
+.carNumList>li.word .txt{font-size:35px;}
+.carNumList>li.type .txt{font-size:14px;}
+.carNumKeyboardBg{position:absolute;top:196px;left:1068px;width:670px;height:472px;}
+.carNumKeyboardBg .areaBg{top:80px;left:0;width:668px;height:470px;}
+.carNumKeyboardBg .numBg{top:0;left:0;width:668px;height:654px;}
+.carNumKeyboardBg .list{margin-left:22px;width:628px;float:left;}
+.carNumKeyboardBg .list.area{margin-top:79px;height:314px;}
+.carNumKeyboardBg .list.word{margin-top:20px;height:628px;}
+.carNumKeyboardBg .list>li{float:left;width:78px;height:78px;margin:13px;line-height:78px;text-align:center;color:#f5446c;font-size:30px;position:relative;
+    background-image: none;
+    border-radius: 13px;
+    background-color:#f5446c;
+    background-image: -webkit-linear-gradient(top,#45243c 0,#45243c 100%);
+    background-image: -o-linear-gradient(top,#45243c 0,#45243c 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#45243c),to(#45243c));
+    background-image: linear-gradient(to bottom,#45243c 0,#45243c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff45243c', endColorstr='#ff45243c', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+.carNumKeyboardBg .list>li:active{background-image: none;color: #fff;background-color: #f5446c;}
+.carNumKeyboardBg .list>li:hover {color: #fff;}
+.carNumKeyboardBg .list>li.w2{width:182px;}
+.carNumKeyboardBg .list>li.disabled{color:#7f7f7f;}
+.carNumKeyboardBg .list>li.disabled:active{
+    background-image: -webkit-linear-gradient(top,#45243c 0,#45243c 100%);
+    background-image: -o-linear-gradient(top,#45243c 0,#45243c 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#45243c),to(#45243c));
+    background-image: linear-gradient(to bottom,#45243c 0,#45243c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff45243c', endColorstr='#ff45243c', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.carNumKeyboardBg .list>li .delIcon_r,
+.carNumKeyboardBg .list>li .delIcon_w{width:52px;height:30px;position:absolute;top:50%;left:50%;margin:-15px 0 0 -26px;}
+.carNumKeyboardBg .list>li:active  .delIcon_r{display:none;}
+
+.posSearchBg{width:692px;height:592px;}
+.posSearchBg .inputBg{width:100%;height:53px;margin-top:48px;float:left;}
+.posSearchBg .inputBg .input1,
+.posSearchBg .inputBg .input2,
+.posSearchBg .inputBg .input3{height:51px;background:#1F1933;border:1px #7670BF solid;border-radius:12px;float:left;}
+.posSearchBg .inputBg .input1{width:79px;margin-left:57px}
+.posSearchBg .inputBg .input2{width:79px;}
+.posSearchBg .inputBg .input3{width:215px;}
+.posSearchBg .inputBg .line{width:20px;height:2px;background:#F5446C;float:left;margin:24px 15px 0 15px;}
+.posSearchBg .inputBg .searchBtn{width:73px;height:53px;float:left;position:relative;background:#F5446C;border-radius:12px;margin-left:20px;}
+.posSearchBg .inputBg input{padding-left:22px;width:100%;height:100%;box-sizing:border-box;float:left;background:none;border:none;color:#F5446C;font-size:25px;outline:none;caret-color:#ffffff;}
+.posSearchBg .inputBg .input1 input,
+.posSearchBg .inputBg .input2 input{padding-left:0;text-align:center;}
+.posSearchBg .inputBg .searchBtn .icon{width:20px;height:20px;position:absolute;top:50%;left:50%;margin:-10px 0 0 -10px;}
+.posSearchBg .inputBg .searchBtn>div{width:100%;height:100%;position:absolute;top:0;left:0;}
+.posSearchBg .list{margin-left:37px;width:628px;float:left;}
+.posSearchBg .list.build,
+.posSearchBg .list.area{margin-top:22px;height:107px;}
+.posSearchBg .list.num{height:214px;}
+.posSearchBg .list>li{float:left;width:77px;height:77px;margin:15px 22px;line-height:77px;text-align:center;color:#f5446c;font-size:30px;position:relative;
+    background-image: none;
+    border-radius: 15px;
+    background-color:#f5446c;
+    background-image: -webkit-linear-gradient(top,#45243c 0,#45243c 100%);
+    background-image: -o-linear-gradient(top,#45243c 0,#45243c 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#45243c),to(#45243c));
+    background-image: linear-gradient(to bottom,#45243c 0,#45243c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff45243c', endColorstr='#ff45243c', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+.posSearchBg .list>li:active{background-image: none;color: #fff;background-color: #f5446c;}
+.posSearchBg .list>li:hover {color: #fff;}
+.posSearchBg .list>li.w2{width:198px;}
+.posSearchBg .list>li.disabled{color:#7f7f7f;}
+.posSearchBg .list>li.disabled:active{
+    background-image: -webkit-linear-gradient(top,#45243c 0,#45243c 100%);
+    background-image: -o-linear-gradient(top,#45243c 0,#45243c 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#45243c),to(#45243c));
+    background-image: linear-gradient(to bottom,#45243c 0,#45243c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff45243c', endColorstr='#ff45243c', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.posSearchBg .list>li .delIcon_r,
+.posSearchBg .list>li .delIcon_w{width:52px;height:30px;position:absolute;top:50%;left:50%;margin:-15px 0 0 -26px;}
+.posSearchBg .list>li:active  .delIcon_r{display:none;}
+
+
+
+.board0{background:rgba(245,68,108,0.1);border:1px #7670bf solid;position:absolute;border-radius:30px;}
+.board1{background:rgba(84,27,43,1);border:1px #7670BF solid;border-radius:30px;}
+.dlgBg0{width:1920px;height:1080px;position:absolute;top:0;left:0;background:rgba(0,0,0,0.7);}
+.faceBg0{width:118px;height:118px;border:3px #7670bf solid;border-radius:60px;position:relative;}
+.face0{width:108px;height:108px;float:left;margin:5px 0 0 5px;border-radius:54px;}
+.faceBg0 .checkIcon{width:42px;height:42px;position:absolute;right:-10px;bottom:-5px;}
+.carNumBg0{background:rgba(245,68,108,0.1);border:1px #7670BF solid;border-radius:7px;text-align:center;color:#F5446C;}
+.cover{width:100%;height:100%;position:absolute;top:0;left:0;}
+.dlgBtn{width:195px;height:53px;float:left;position:relative;}
+.dlgBtn .icon,
+.dlgBtn .txt{width:195px;height:53px;position:absolute;top:0;left:0;}
+.dlgBtn .txt{line-height:53px;text-align:center;font-size:30px;color:#ffffff;}
+

@@ -1,0 +1,4 @@
+//安装gulp
+yarn add gulp --dev
+//运行指令
+yarn gulp xxx

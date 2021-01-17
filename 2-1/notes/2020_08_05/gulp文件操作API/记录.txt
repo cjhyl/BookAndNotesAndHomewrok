@@ -1,0 +1,4 @@
+//安装css压缩插件
+yarn add gulp-clean-css --dev
+//安装改名插件
+yarn add gulp-rename --dev
