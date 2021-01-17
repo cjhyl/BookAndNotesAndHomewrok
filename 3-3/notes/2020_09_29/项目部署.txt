@@ -1,0 +1,4 @@
+今天的直播讲述了Github Pages、Netlify、Vercel等项目部署，以及nuxtjs项目的部署。
+
+ServerLess服务器
+Node.js服务器

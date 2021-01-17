@@ -1,0 +1,1 @@
+vuex中的模块可以添加命名空间，namespaced:true，这样在使用map函数的时候，可以...mapState('xxx',[])进行映射

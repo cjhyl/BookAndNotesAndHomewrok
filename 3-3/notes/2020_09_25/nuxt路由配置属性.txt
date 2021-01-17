@@ -1,0 +1,14 @@
+在nuxt.config.js中，配置路由属性，例：
+
+module.exports = {
+  router: {
+    base: '/base/',//base属性，主要用于项目配置到子目录时用
+    extemdRouter(routes, resolve) {//用于扩展路由
+      routes.push({
+        name: 'custom',
+        path: '*',
+        component: resolve(__dirname, 'pages/404.vue')
+      })
+    }
+  }
+}

@@ -1,0 +1,4 @@
+new Vuex.Store({
+  strict:true
+})
+添加strice:true可以开启严格模式，这样在不经过mutaition提交修改数据的话，会报错。

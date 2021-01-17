@@ -1,0 +1,1 @@
+https://github.com/goddlts/vuex-cart-demo-template.git
