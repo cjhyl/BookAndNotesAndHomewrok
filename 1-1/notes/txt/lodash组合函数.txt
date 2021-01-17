@@ -1,0 +1,22 @@
+//使用_.flow和_.flowRight
+案例1：把一个数组中最后一位转为大写，使用一元参数函数，直接组合
+const _ = require('lodash');
+const f = _.flowRight(_.toUpper,_.first,_.reverse);
+console.log(f(['one','two','three']));
+案例2：把DONT SAY DIE转换为dont-say-die，中间使用了几个二元参数的函数，需进行柯里化处理。
+const _ = require('lodash');
+
+const trace = _.curry((tag,v)=>{
+  console.log(tag,v);
+  return v;
+})
+
+const split = _.curry((sep,str)=>_.split(str,sep))
+
+const map = _.curry((fn,array)=>_.map(array,fn))
+
+const join = _.curry((sep,array)=>_.join(array,sep))
+
+const f = _.flowRight(join('-'),trace('map后'),map(_.toLower),trace('split后'),split(' '))
+
+console.log(f('DONT SAY DIE'));

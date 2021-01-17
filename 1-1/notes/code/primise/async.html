@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function isBgTo100(num){
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+            if(num>100){
+              resolve(num);
+            }else{
+              reject(new Error('less than 100'))
+            }
+          },2000)
+        //
+        
+        })
+      }
+      //改造generator中的代码
+      async function main() {
+          console.log('start');
+          try{
+            const rl = await isBgTo100(101);
+            console.log(rl)
+            const rl2 = await isBgTo100(102);
+            console.log(rl2)
+            const rl3 = await isBgTo100(103);
+            console.log(rl3)
+          }catch(e){
+              console.log(e);
+          }
+          
+      }
+      const promise = main();
+      promise.then(()=>{
+          console.log('end');
+      })
+
+    //   function runMain(rl){
+    //     if(rl.done) {
+    //         console.log('end');
+    //         return;
+    //     }
+    //     rl.value.then(data=>{
+    //         runMain(g.next(data));
+    //     },err=>{
+    //         g.throw(err);
+    //     })
+        
+    //   }
+
+    //   const g = main();
+    //   runMain(g.next());
+
+    //   const g = main();
+    //   const rl3 = g.next();
+
+    //   rl3.value.then(data=>{
+    //       const rl4=g.next(data)
+    //       rl4.value.then(data=>{
+    //         g.next(data)
+    //       })
+    //   })
+
+    </script>
+  </body>
+</html>

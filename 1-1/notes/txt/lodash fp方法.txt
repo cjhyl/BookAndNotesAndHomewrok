@@ -1,0 +1,13 @@
+fp对象中的函数都被改造成了柯里化的函数，函数优先，数据滞后，把昨天的案例进行改造：
+案例2：把DONT SAY DIE转换为dont-say-die。
+const _ = require('lodash');
+const fp = require('lodash/fp');
+
+const trace = _.curry((tag,v)=>{
+  console.log(tag,v);
+  return v;
+})
+
+const f = _.flowRight(fp.join('-'),trace('map后'),fp.map(_.toLower),trace('split后'),fp.split(' '))
+
+console.log(f('DONT SAY DIE'));

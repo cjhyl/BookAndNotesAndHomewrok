@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function isBgTo100(num){
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+            if(num>100){
+              resolve(num);
+            }else{
+              reject(new Error('less than 100'))
+            }
+          },2000)
+        //
+        
+        })
+      }
+      //链式调用
+      isBgTo100(99).then((value)=>{
+        console.log('resolve',value);
+        return isBgTo100(101);
+      }).catch((err)=>{
+        console.log('reject',err);
+        return isBgTo100(101);
+      }).then((value)=>{
+        console.log('resolve',value);
+      }).catch((err)=>{
+        console.log('reject',err);
+      })
+      //并行处理
+      var allp = Promise.all([
+        isBgTo100(102),
+        isBgTo100(103),
+        isBgTo100(104),
+      ]);
+      console.log(allp);
+      allp.then((value)=>{
+        console.log('allp resolve',value);
+      }).catch((err)=>{
+        console.log('allp reject',err);
+      })
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script src="MyPromise.js"></script>
+        <script>
+            //第一课，核心逻辑实现测试
+            // let promise = new MyPromise((resolve,reject)=>{
+            //     //resolve('成功');
+            //     reject('失败')
+            // })
+
+            // promise.then((value)=>{
+            //     console.log(value);
+            // },(reason)=>{
+            //     console.log(reason);
+            // })
+            //第二课，异步逻辑测试
+            // let promise = new MyPromise((resolve,reject)=>{
+            //     setTimeout(()=>{
+            //         //resolve('成功');
+            //         reject('失败')
+            //     },2000);
+                
+            // })
+
+            // promise.then((value)=>{
+            //     console.log(value);
+            // },(reason)=>{
+            //     console.log(reason);
+            // })
+            //第三课，then方法多次调用
+            // let promise = new MyPromise((resolve,reject)=>{
+            //     setTimeout(()=>{
+            //         resolve('成功');
+            //         //reject('失败')
+            //     },2000);
+                
+            // })
+
+            // promise.then((value)=>{
+            //     console.log(value);
+            // },(reason)=>{
+            //     console.log(reason);
+            // })
+
+            // promise.then((value)=>{
+            //     console.log(value);
+            // },(reason)=>{
+            //     console.log(reason);
+            // })
+
+            // promise.then((value)=>{
+            //     console.log(value);
+            // },(reason)=>{
+            //     console.log(reason);
+            // })
+            //第四课，then方法链式调用 只能传递普通值
+            // let promise = new MyPromise((resolve,reject)=>{
+            //     //setTimeout(()=>{
+            //         resolve('成功');
+            //         //reject('失败')
+            //     //},2000);
+            // })
+            // promise.then((value)=>{
+            //     console.log(value);
+            //     return 100;
+            // }).then((value)=>{
+            //     console.log(value);
+            // })
+            //第五课，then方法链式调用 可传递promise
+            // let promise = new MyPromise((resolve,reject)=>{
+            //     //setTimeout(()=>{
+            //         resolve('成功');
+            //         //reject('失败')
+            //     //},2000);
+            // })
+            // function other(){
+            //     return new MyPromise((resolve,reject)=>{
+            //         resolve('other')
+            //     })
+            // }
+            // promise.then((value)=>{
+            //     console.log(value);
+            //     return other();
+            // }).then((value)=>{
+            //     console.log(value);
+            // })
+            //第六课，then方法链式调用 识别自己
+            // let promise = new MyPromise((resolve,reject)=>{
+            //         resolve('成功');
+            // })
+            // let p1=promise.then((value)=>{
+            //     console.log(value);
+            //     return p1;
+            // })
+            // p1.then((value)=>{
+            //     console.log(value);
+            // },(reason)=>console.log(reason.message))
+            //第七课，错误处理 构造器、then、失败、异步
+            // let promise = new MyPromise((resolve,reject)=>{
+            //     //throw new Error('executor error');
+            //     resolve('成功');
+            // })
+            // promise.then((value)=>{
+            //     throw new Error('then error')
+            //     console.log(value);
+            // },(reason)=>console.log(reason.message)).then((value)=>{
+            //     console.log(value);
+            // },(reason)=>{
+            //     console.log('aa')
+            //     console.log(reason.message)
+            // })
+
+            // let promise2 = new MyPromise((resolve,reject)=>{
+            //     //throw new Error('executor error');
+            //     reject('失败');
+            // })
+            // promise2.then((value)=>{
+            //     console.log(value);
+            // },(reason)=>{
+            //     console.log(reason)
+            //     return 10000;
+            // }).then((value)=>{
+            //     console.log(value);
+            // })
+
+            // let promise3 = new MyPromise((resolve,reject)=>{
+            //     setTimeout(()=>{
+            //         resolve('成功');
+            //         //reject('失败');
+            //     },2000)
+                
+            // })
+            // promise3.then((value)=>{
+            //     console.log(value);
+            //     return '成功2'
+            // },(reason)=>{
+            //     console.log(reason)
+            //     return '失败2'
+            // }).then((value)=>{
+            //     console.log(value);
+            // })
+            //第八课 then可选参数
+            // let promise = new MyPromise((resolve,reject)=>{
+            //     //resolve('成功');
+            //     reject('失败')
+            // })
+            // promise.then().then().then((value)=>{
+            //     console.log(value);
+            // },reason=>console.log(reason))
+            //第九课 all的实现
+            // function p1(){
+            //     return new MyPromise((resolve,reject)=>{
+            //         resolve('p1')
+            //     });
+            // }
+            // function p2(){
+            //     return new MyPromise((resolve,reject)=>{
+            //         setTimeout(()=>{
+            //             resolve('p2')
+            //         },2000)
+            //     })
+            // }
+            // MyPromise.all(['1','2',p1(),p2(),'5']).then(rl=>console.log(rl))
+            //第十课 resolve的实现
+            // function p2(){
+            //     return new MyPromise((resolve,reject)=>{
+            //         setTimeout(()=>{
+            //             resolve('p2')
+            //         },2000)
+            //     })
+            // }
+            // MyPromise.resolve(100).then(value=>console.log(value))
+            // MyPromise.resolve(p2()).then(value=>console.log(value))
+            //第十一课 finally的实现
+            // function p1(){
+            //     return new MyPromise((resolve,reject)=>{
+            //         resolve('p1')
+            //     });
+            // }
+            // function p2(){
+            //     return new MyPromise((resolve,reject)=>{
+            //         setTimeout(()=>{
+            //             resolve('p2')
+            //         },2000)
+            //     })
+            // }
+            // p1().finally(()=>{
+            //     console.log('finally');
+            //     return p2();
+            // }).then(value=>{
+            //     console.log(value)
+            // },reason=>{
+            //     console.log(reason)
+            // })
+            //第十二课
+            // function p1(){
+            //     return new MyPromise((resolve,reject)=>{
+            //         //resolve('成功')
+            //         reject('失败')
+            //     });
+            // }
+            // p1().then(value=>console.log(value)).catch(reason=>console.log(reason));
+        </script>
+    </body>
+</html>

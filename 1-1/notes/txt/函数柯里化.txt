@@ -1,0 +1,36 @@
+//普通函数
+function checkAge(min,age){
+  return age>min;
+}
+console.log(checkAge(18,16));
+console.log(checkAge(18,22));
+console.log(checkAge(20,24));
+//柯里化函数--使用了闭包
+function checkAgeKl(min){
+  return function(age){
+    return age>min;
+  }
+}
+//var checkAgeKlEs6=min=>(age=>age>min);
+var checkAge18=checkAgeKl(18);
+var checkAge20=checkAgeKl(20);
+console.log(checkAge18(16));
+console.log(checkAge18(22));
+console.log(checkAge20(24));
+
+
+柯里化定义：改造一个有多个参数的函数，调用一个函数只传递部分参数(这部分参数以后不会变化)，返回一个新函数，新函数接收剩余参数。
+
+
+柯里化实现源码模拟：
+
+function curry(func){
+  return function curriedFn(...args){
+    if(args.length<func.length){
+      return function(){
+        return curriedFn(...args.concat(Array.from(arguments)));
+      }
+    }
+    return func(...args);
+  }
+}

@@ -1,0 +1,18 @@
+const _ = require('lodash');
+
+const match=_.curry((reg,str)=>str.match(reg));
+const haveSpace = match(/\s+/g);
+const haveNumber = match(/\d+/g);
+
+console.log(haveSpace('hello Wolrd'),haveSpace('helloWolrd'));
+console.log(haveNumber('hello Wolrd'),haveSpace('hello Wolrd,2020'));
+
+const filter = _.curry((fn,arr)=>arr.filter(fn));
+const findSpace = filter(haveSpace);
+const findNumber = filter(haveNumber);
+
+let ary1=['a','b','hello world'];
+let ary2=['helloworld,2020'];
+
+console.log(findSpace(ary1),findSpace(ary2))
+console.log(findNumber(ary1),findNumber(ary2))
