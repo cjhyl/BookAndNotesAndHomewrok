@@ -1,0 +1,30 @@
+现代浏览器都支持 ES Module（除了IE）
+通过下面的方式加载模块
+<script type="module" src="..."></script>
+支持模块的script默认延迟加载
+类似于script标签设置defer
+在文档解析完成后，触发DOMContentLoaded事件前执行
+
+vite是法语 快 的意思，它使用浏览器支持的es module方式，避免开发环境下打包，从而提升开发速度。
+
+vite在开发模式下使用esm加载模块，不需要打包可以直接运行
+vue-cli开发模式下必须对项目打包才可以运行。
+
+vite特点：
+快速冷启动
+按需编译
+模块热更新(且性能更高)
+
+vite在生产环境下使用Rollup打包，----基于ES Module的方式打包，打包体积更小
+vue-cli使用Webpack打包
+
+
+vite创建项目：
+npm init vite-app <project-name>
+cd <project-name>
+npm install
+npm run dev
+
+基于模板创建项目(可以使用其他框架)
+npm init vite-app --template react
+npm init vite-app --template preact

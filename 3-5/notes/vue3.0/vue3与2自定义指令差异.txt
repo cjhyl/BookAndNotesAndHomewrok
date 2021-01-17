@@ -1,0 +1,29 @@
+参数为对象时：
+2.0：
+Vue.directive('editingFocus',{
+  bind(el,binding,vnode,prevVnode) {},
+  inserted() {},
+  update() {},
+  componentUpdated() {},
+  unbind() {}
+})
+
+3.0：
+Vue.directive('editingFocus',{
+  beforeMount(el,binding,vnode,prevVnode) {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  beforeUnmount() {},
+  unmounted() {}
+})
+
+参数为函数时：使用方法不变
+2.0
+Vue.directive('editingFocus',(el,binding){
+  binding.value && el.focus()
+})
+3.0
+Vue.directive('editingFocus',(el,binding){
+  binding.value && el.focus()
+})

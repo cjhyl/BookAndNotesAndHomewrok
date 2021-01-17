@@ -1,0 +1,9 @@
+3.0与2.0区别：
+1、源码组织方式变化：
+使用了typescript开发，项目组织结构发生了变化，使用monorepo方式组织项目结构，把独立的功能模块都提取到不同的包中。
+2、Compostion API
+3、性能提升
+proxy替换defineproperty提升响应式性能
+虚拟dom重写,渲染和update性能提升
+官方说服务端渲染性能提升了2-3倍。
+4、Vite

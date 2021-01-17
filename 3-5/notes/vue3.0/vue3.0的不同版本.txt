@@ -1,0 +1,19 @@
+cjs commonjs模块化方式
+vue.cjs.js
+vue.cjs.prod.js
+
+global 全局，下面的打包文件全都可以在浏览器中以script的方式导入，导入后会增加一个全局的vue对象。
+vue.global.js//完整版
+vue.global.prod.js
+vue.runtime.global.js//只包含运行时的版本
+vue.runtime.global.prod.js
+
+browser 浏览器的原生模块化方式 esmodule方式，也可在浏览器中直接导入，也分完整版和运行时版
+vue.esm-browser.js
+vue.esm-browser.prod.js
+vue.runtime.esm-browser.js
+vue.runtime.esm-browser.prod.js
+
+bundler 需要配合打包工具使用，使用的esm方式
+vue.esm-bundler.js
+vue.runtime.esm-bundler.js//脚手架项目中默认导入这个，只包含运行时，打包时只打包使用过的模块，使代码更小。

@@ -1,0 +1,77 @@
+安全层面
+架构层面
+运维层面
+
+安全相关问题
+用户身份被盗用
+用户密码泄露
+用户资料被盗取
+网站数据库泄露
+
+
+课程内容
+跨站脚本攻击XSS
+跨站请求伪造CSRF
+点击劫持攻击
+HTTP传输安全
+第三方依赖安全
+
+
+
+XSS攻击：
+Cross-Site Scripting(跨站脚本攻击)简称XSS，是一种代码注入攻击。攻击者通过在目标网站上注入恶意脚本，使之在用户的浏览器上运行。利用这些恶意脚本，攻击者可获取用户的敏感信息如Cookie、SessionID等，进而危害数据安全。
+之所以不叫Css，因为CSS是层叠样式表，所以Cross（意为“交叉”）以交叉型的X作为缩写。
+<img src="xxx" onerror="alert(111)" />
+反射型：url
+对于url中会被渲染到dom中的字符，插入危险html代码。
+存储型：数据持久化
+对于数据库中如富文本编辑器数据之类的，会渲染到页面dom的数据，传入危险html代码。
+
+
+<img src="变量" />
+变量=xxx" onerror="alert(111)
+
+前段处理方式：
+<>在前端展示时替换为&lt;和&gt;
+"替换为&quot;
+
+反射型和存储型，现在的主流前段框架已经处理得很好了，vue、reace、angular...
+
+js-xss库，根据白名单过滤HTML（防止XSS攻击）
+
+浏览器对于ajax的x-xss-Protection:属性
+
+
+危险行为：
+innerHTML
+outerHTML
+document.write
+
+
+
+
+
+
+
+
+CSRF：跨站请求伪造
+GET类型的：
+<img src="http://xxx.com/aaa?for=hacker" />
+POST类型的：
+<form>
+</form>
+<script>
+提交form
+</script>
+链接类型的：
+<a href="xxx"></a>
+
+CSRF一般发生在第三方网站。
+
+不使用cookie，使用token。
+
+
+
+
+点击劫持：创建一个网页利用iframe包含目标网站。
+x-frame-options

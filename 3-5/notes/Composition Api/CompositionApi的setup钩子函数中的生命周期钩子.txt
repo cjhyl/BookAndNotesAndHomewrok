@@ -1,0 +1,12 @@
+
+beforeCreate -> Not needed
+created -> Not needed
+beforeMount -> onBeforeMount
+mounted -> onMounted
+beforeUpdate -> onBeforeUpdate
+updated -> onUpdated
+beforeUnmount -> onBeforeUnmount
+unmounted -> onUnmounted
+errorCaptred -> onErrorCaptrued
+renderTracked -> onRenderTracked
+renderTriggered -> onRenderTriggered

@@ -1,0 +1,14 @@
+packages
+compiler-core//与平台无关的编译器
+compiler-dom//浏览器平台下的编译器，依赖于core
+compiler-sfc//single file componet单文件组件编译器，依赖于dom、core
+compiler-ssr//服务端渲染编译器，依赖于dom
+reactivity//数据响应式系统，课独立使用
+runtime-core//与平台无关的运行时
+runtime-dom//与浏览器相关运行时，处理原生dom的api、事件等。
+runtime-test//为测试编写的轻量级运行时
+server-renderer//服务端渲染
+shared//vue内部使用的公共api
+size-check//私有包，用于tree shaking后检查包大小
+template-explorer//浏览器中运行的实时编译组件，会输出render函数
+vue//构建完整版的vue,依赖于compiler和runtime

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    X:{{x}}<br>
+    Y:{{y}}
+  </div>
+  <script type="module">
+    import { createApp, reactive, onMounted, onUnmounted, toRefs } from './node_modules/vue/dist/vue.esm-browser.js'
+
+    // const app = createApp({
+    //   data () {
+    //     return {
+    //       position: {
+    //         x: 0,
+    //         y: 0
+    //       }
+    //     }
+    //   },
+    //   created () {
+    //     window.addEventListener('mousemove',this.handle)
+    //   },
+    //   destroyed () {
+    //     window.removeEventListener('mousemove',this.handle)
+    //   },
+    //   methods: {
+    //     handle (e) {
+    //       this.position.x = e.pageX,
+    //       this.position.y = e.pageY
+    //     }
+    //   }
+    // })
+
+
+    function useMousePosition(){
+      //直接创建的变量不是响应式的，需使用reactive转换为响应式
+      const position = reactive({
+        x: 0,
+        y: 0
+      })
+      
+      const update = (e) => {
+        position.x = e.pageX
+        position.y = e.pageY
+      }
+      onMounted(() => {
+        window.addEventListener('mousemove',update)
+      })
+      onUnmounted(() => {
+        window.removeEventListener('mousemove',update)
+      })
+
+      return toRefs(position);
+    }
+    const app = createApp({
+      //setup钩子函数执行时机是props解析完毕，组件示例创建之前执行，所以这里无法访问到vue实例对象
+      setup () {
+        // 第一个参数 props
+        // 第二个参数 context、attrs、emit、slots
+
+        // const position = useMousePosition()
+
+        const { x, y } = useMousePosition()
+
+        return {
+          x,
+          y
+        }
+      }
+    })
+    app.mount('#app')
+    console.log(app)
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+学习地址：
+RFC(Request For Comments)
+https://github.com/vuejs/rfcs
+Composition API RFC
+https://composition-api.vuejs.org
+
+
+vue2.x在中小型项目很好用，但开发大型的、需要迭代的项目时也有一定限制，看功能复杂的组件的时候可能很难看懂。
+vue2.x使用的options API，它包含一个描述组件选项(data、methods、props等)的对象，这种方式在开发复杂组件时，同一个功能逻辑的代码被拆分到不同选项。
+示例：
+export default {
+  data () {
+    return {
+      position: {
+        x: 0
+        y: 0
+      }
+    }
+  },
+  created () {
+    window.addEventListener('mousemove',this.handle)
+  },
+  destroyed () {
+    window.removeEventListener('mousemove',this.handle)
+  },
+  methods: {
+    handle (e) {
+      this.position.x = e.pageX,
+      this.position.y = e.pageY
+    }
+  }
+}
+在这个功能中，在数据中声明position，在handle函数中处理，在created钩子中注册事件，在destroyed钩子中销毁事件。如果类似功能较多的时候，显得比较难以维护。
+
+Compositon API：Vue.js 3.0 新增的一组API、一组基于函数的API 、可以更灵活的组织组件的逻辑
+
+使用Composition API改造
+//把鼠标移动功能相关的数据声明、逻辑处理、事件注册与销毁封装到独立的模块中
+import { reactive, onMounted, onUnmounted } from 'vue'
+function useMousePosition () {
+  const position = reactive({
+    x: 0,
+    y: 0
+  })
+  const update = (e) => {
+    position.x = e.pageX
+    position.y = e.pageY
+  }
+  onMounted(() => {
+    window.addEventListener('mousemove',update)
+  })
+  onUnmounted(() => {
+    window.removeEventListener('mousemove',update)
+  })
+}
+
+//在需要使用时导入到setup函数中即可使用
+export default {
+  setup () {
+    const position = useMousePosition()
+    return {
+      position
+    }
+  }
+}
+
+使用更方便，更有利于逻辑代码的重用，而且查看功能逻辑时显得更简洁、清晰
