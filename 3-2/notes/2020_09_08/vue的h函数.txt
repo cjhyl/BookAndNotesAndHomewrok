@@ -1,0 +1,9 @@
+h(tag,data,children)
+return h('h1', this.msg)
+return h('h1',{domProps:{innerHTML:this.msg}})
+return h('h1',{attrs:{id:'title'}},this.msg)
+
+
+tag:标签名称或者组件对象
+data:描述tag，可以设置dom的属性或者标签的属性
+children:tag中的文本内容或者子节点

@@ -1,0 +1,15 @@
+模板编译，从$mount方法中调用compileToFunctions开始。
+
+一、compileToFunctions中：
+（一）、读取缓存中的CompileFunctionResult对象，有则返回缓存，否则继续。
+（二）、通过compile函数把模板和用户选项编译为编译对象。
+1、接收模板和选项数据，处理选项数据。
+2、用baseCompile函数把模板和处理过的选项数据转换为编译对象
+（1）、使用parse函数把模板字符串转换为抽象语法树对象ast。
+（2）、使用optimize函数标记静态内容，优化抽象语法树。
+（3）、使用generate函数把抽象语法树对象编译为字符串形式的js代码。
+（4）、返回编译对象
+3、返回编译对象。
+（三）、用createFunction函数把编译对象的render、staticRenderFns（字符串形式的js代码）转换为js方法并注入到res对象的同名属性中。
+（四）、缓存并返回res对象
+二、把返回的res对象的解构属性render和staticRenderFns分别挂载到vue实例的options选项对象中。

@@ -1,0 +1,15 @@
+在src/core/global-api/index.js中的initGlobalAPI中，给vue添加全局静态属性、方法，有
+config//配置属性
+set
+delete
+nextTick
+observable//让一个对象可响应
+options.components//存储全局组件 并加入keep-alive组件
+options.directives//存储全局指令
+options.filters//存储全局筛选器
+use//注册插件
+mixin//实现混入
+extend//通过传入的options返回一个组件的构造函数
+component//注册组件的方法
+directive//注册指令
+filter//注册筛选器
