@@ -1,0 +1,95 @@
+设计模式，是一种思想，和语言无关。
+可以提高开发效率，提高代码可维护性。
+
+
+
+学习设计模式的基础：
+类、实例、构造函数、继承、封装、多态、js原型、es6的class
+
+this指向
+call、apply、bind
+闭包、高阶函数
+
+UML类图
+UML绘制工具：
+Microsoft Office Visio
+processon.com
+draw.io
+使用UML类图绘制类设计
+
+
+
+
+
+1.工厂模式
+2.单例模式：
+始终只产生一个实例：
+class TestClass {
+  constructor(){}
+  show(){}
+  hide(){}
+}
+
+const createSingle = function (fn){
+  let instance
+  return function(){
+    if(!instance){
+      instance=new fn()
+    }
+    return instance
+  }
+}
+
+const createTestClass = createSingle(TestClass)
+
+const form1 = createTestClass()
+const form2 = createTestClass()
+console.log(form1===form2)
+3.策略模式
+4.发布订阅模式
+var Event = function() {
+    this.obj = {}
+}
+
+Event.prototype.on = function(eventType,fn) {
+    if(!this.obj[eventType]) {
+        this.obj[eventType] = []
+    }
+    this.obj[eventType].push(fn)
+}
+
+Event.prototype.off = function() {
+
+}
+
+Event.prototype.emit = function() {
+
+    // 取第一个参数，作为eventType
+    var eventType = Array.prototype.shift.call(arguments);
+
+    //  获取事件数组
+    var arr = this.obj[eventType];
+    var len = arr.length;
+
+    // 循环数组，一次执行其中的函数
+    for(var i=0;i
+        // 直接调用arr[i]，其this指向为undefined（严格模式下）
+        // 因此用apply将this指向arr[i]
+        // 数组shift函数取出第一个参数，将剩下的参数传入函数中
+        arr[i].apply(arr[i],arguments)
+    }
+}
+
+
+var ev = new Event()
+
+ev.on('click',function(a) {  // 订阅
+    console.log(a)
+})
+
+ev.emit('click',1)   // 发布
+
+
+搜书技巧
+面包树、网盘精灵 搜 网盘资源
+谷歌、百度搜索 书名 github
