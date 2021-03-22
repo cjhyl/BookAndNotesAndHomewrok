@@ -9,7 +9,7 @@ export default{
   ssr: false,
   target: 'static'
 }
-运行npm run generate生成纯静态网站。
+运行npm run generate生成纯静态网站
 
 
 nuxt vercel部署：
