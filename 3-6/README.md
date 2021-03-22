@@ -1,5 +1,5 @@
 ﻿1. 说说 application/json 和 application/x-www-form-urlencoded 二者之间的区别。
-答：application/json发送的是序列化后的JSON字符串，application/x-www-form-urlencoded发送前，数据字符会按照键/值对的方式进行编码。
+答：application/json发送的是序列化后的JSON字符串,application/x-www-form-urlencoded发送前，数据字符会按照键/值对的方式进行编码。
 
 2. 说一说在前端这块，角色管理你是如何设计的。
 角色管理的文件结构如下：
