@@ -1,0 +1,8 @@
+面包屑
+
+权限路由
+一个vue-element模板：
+github.com/PanJiaChen/vue-element-admin
+
+权限菜单
+介绍了菜单组件的递归用法

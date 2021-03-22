@@ -1,0 +1,70 @@
+vue官网->学习->教程->TypeScript支持
+1、基本用法
+要让 TypeScript 正确推断 Vue 组件选项中的类型，您需要使用 Vue.component 或 Vue.extend 定义组件：
+import Vue from 'vue'
+const Component = Vue.extend({
+  // 类型推断已启用
+})
+
+const Component = {
+  // 这里不会有类型推断，
+  // 因为 TypeScript 不能确认这是 Vue 组件的选项
+}
+2、基于类的 Vue 组件
+如果您在声明组件时更喜欢基于类的 API，则可以使用官方维护的 vue-class-component 装饰器：
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+// @Component 修饰符注明了此类为一个 Vue 组件
+@Component({
+  // 所有的组件选项都可以放在这里
+  template: '<button @click="onClick">Click!</button>'
+})
+export default class MyComponent extends Vue {
+  // 初始数据可以直接声明为实例的 property
+  message: string = 'Hello!'
+
+  // 组件方法也可以直接声明为实例的方法
+  onClick (): void {
+    window.alert(this.message)
+  }
+}
+
+ts+vue类模式的vue组件各种api兼容文档：
+https://class-component.vuejs.org/
+
+类模式props使用：
+const myProps = Vue.extend({
+  props: {
+    name: String
+  }
+})
+
+export default class App extends MyProps {
+  get message ():string {
+    return 'Hello, ' + this.name
+  }
+}
+使用比较复杂，更好的方法是使用vue-property-decorator：
+https://github.com/kaorun343/vue-property-decorator
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @Prop(Number) readonly propA: number | undefined
+  @Prop({ default: 'default value' }) readonly propB!: string
+  @Prop([String, Boolean]) readonly propC: string | boolean | undefined
+}
+除了@prop外，还有
+@PropSync
+@Model
+@ModelSync
+@Watch
+@Provide
+@Inject
+@ProvideReactive
+@InjectReactive
+@Emit
+@Ref
+@VModel
+等。

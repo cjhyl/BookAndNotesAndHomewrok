@@ -1,0 +1,18 @@
+package.json中：
+dependencies依赖：
+vue-class-component: 提供使用class语法写Vue组件
+vue-property-decorator: 在Class语法基础上提供了一些辅助装饰器
+
+devDependencies依赖：
+@typescript-eslint/eslint-plugin: 使用ESLint校验TypeScript代码
+@typescript-eslint/parser: 将TypeScript转为AST供ESLint校验使用
+@vue/cli-plugin-typescript: 使用TypeScript+ts-loader+fork-ts-checker-webpack-plugin进行更快的类型检查
+@vue/eslint-config-typescript: 兼容ESLint的TypeScript校验规则
+typescript: TypeScript编译器，提供类型校验和转换的JavaScript功能
+
+
+TypeScript配置文件：tsconfig.json
+
+自定义ts规则文件：.d.ts结尾的。
+shims-vue.d.ts：让ts识别.vue文件
+shims-tsx.d.ts：可以识别jsx语法中的VNode、Vue

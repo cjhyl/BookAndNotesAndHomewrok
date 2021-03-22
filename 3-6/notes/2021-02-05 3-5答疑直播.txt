@@ -1,0 +1,7 @@
+1、介绍了Vue3的现状。
+介绍了Vue3的版本状况、周边生态的跟进。
+2、如何快速上手Vue3
+Vue3和Vue2相比，除了多了composition api外，其他的变动不大。
+Vue3对TypeScript的支持比Vue2更好。
+3、创建Vue3+TypeScript+Vue Router+Vuex+axios项目。
+以realworld为示例，从头开始构建项目。

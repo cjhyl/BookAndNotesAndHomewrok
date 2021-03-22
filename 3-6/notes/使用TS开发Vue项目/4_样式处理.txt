@@ -1,0 +1,9 @@
+样式文件规划：
+src/styles中：
+index.scss 全局样式（在入口模块被加载生效）
+mixin.scss 公共的 mixin 混入（可以把重复的样式封装为 mixin 混入到复用的地?）
+reset.scss 重置基础样式
+variables.scss 公共样式变量
+
+https://cli.vuejs.org/zh/guide/css.html#%E5%90%91%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8-loader-%E4%BC%A0%E9%80%92%E9%80%89%E9%A1%B9
+向预处理器Loader传递选项，全局引入变量类样式

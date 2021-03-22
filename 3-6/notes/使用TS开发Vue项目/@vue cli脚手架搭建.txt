@@ -1,0 +1,75 @@
+//安装最新稳定版
+npm install -g @vue/cli
+创建项目
+vue create project-name
+选择：
+Manually select features//自定义
+自定义选项：
+( ) Choose Vue version//是否选择vue版本，不勾选默认2，勾选将进行选择2还是3
+(*) Babel
+(*) TypeScript
+( ) Progressive Web App (PWA) Support
+(*) Router
+( ) Vuex
+(*) CSS Pre-processors//css预处理器 勾选后将进行css预处理器选择
+(*) Linter / Formatter//代码格式校验工具
+( ) Unit Testing
+( ) E2E Testing
+是否使用class-style分隔的组件语法？选择了TS会有这选项：
+Use class-style component syntax? (Y/n)Y
+是否使用Babel和TS结合编译js？选择了TS会有这选项，因为TS模块本身就有js代码降级编译功能，此选项可以让TS只负责TS的类型相关的处理，js的es6代码降级由babel来处理。
+Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? (Y/n)Y
+是否使用history模式？
+Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n)N
+选择css预处理器：
+? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): (Use arrow keys)
+> Sass/SCSS (with dart-sass)
+  Sass/SCSS (with node-sass)
+  Less
+  Stylus
+选择代码校验风格：
+? Pick a linter / formatter config: (Use arrow keys)
+  ESLint with error prevention only
+  ESLint + Airbnb config
+> ESLint + Standard config
+  ESLint + Prettier
+  TSLint (deprecated)
+选择触发代码格式校验的时机：
+? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+>(*) Lint on save//保存时
+ (*) Lint and fix on commit//git提交的时候
+选择babel、eslint等配置信息存放方式
+? Where do you prefer placing config for Babel, ESLint, etc.? (Use arrow keys)
+> In dedicated config files//单独配置文件
+  In package.json//集中到package.json中
+是否把刚才的选项进行保存？（以后创建项目时会默认以上配置）
+? Save this as a preset for future projects? (y/N)N
+
+
+初始目录结构：
+ .
+ ├── node_modules # 第三方包存储目录
+ ├── public # 静态资源目录，任何放置在 public 文件夹的静态资源都会被简单的复制，而不经过 webpack
+ │  ├── favicon.ico
+ │  └── index.html
+ ├── src
+ │  ├── assets # 公共资源目录，放图?等资源
+ │  ├── components # 公共组件目录
+ │  ├── router # 路由相关模块
+ │  ├── store # 容器相关模块
+ │  ├── views # 路由页面组件存储目录
+ │  ├── App.vue # 根组件，最终被替换渲染到 index.html 页面中 #app 入口节点
+ │  ├── main.ts # 整个项目的启动入口模块
+ │  ├── shims-tsx.d.ts # 支持以 .tsc 结尾的文件，在 Vue 项目中编写 jsx代码
+ │  └── shims-vue.d.ts # 让 TypeScript 识别 .vue 模块
+ ├── .browserslistrc # 指定了项目的目标浏览器的范围。这个值会被 @babel/preset-env 和 Autoprefixer 用来确定需要转译的 JavaScript 特性和需要添加的 CSS 浏览器前缀
+ ├── .editorconfig # EditorConfig 帮助开发人员定义和维护跨编辑器（或IDE）的统一的代码风格
+ ├── .eslintrc.js # ESLint 的配置文件
+ ├── .gitignore # Git 的忽略配置文件，告诉Git项目中要忽略的文件或文件夹
+ ├── README.md # 说明文档
+ ├── babel.config.js # Babel 配置文件
+ ├── package-lock.json # 记录安装时的包的版本号，以保证自己或其他人在 npm install 时大家的依赖能保证一致
+ ├── package.json # 包说明文件，记录了项目中使用到的第三方包依赖信息等内容
+ └── tsconfig.json # TypeScript 配置文件
+
+

@@ -1,0 +1,3 @@
+在已有项目中，添加Vue官方配置的TypeScript适配插件：
+使用@vue/cli安装TypeScript插件：
+vue add @vue/typescript
